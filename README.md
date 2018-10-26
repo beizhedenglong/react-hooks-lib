@@ -21,7 +21,7 @@ Vist [here](https://github.com/beizhedenglong/react-hooks-lib/blob/master/exampl
 | useHover   | -       | { hovered, bind }                               |
 | useActive  | -       | { active, bind }                                |
 | useFocus   | -       | { focused, bind }                               |
-| useField   | -       | { value, set, reset, bind }                     |
+| useField   | initial       | { value, set, reset, bind }                     |
 
 ## Usage
 
