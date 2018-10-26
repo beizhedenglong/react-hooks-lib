@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
 import {
   useToggle, useCounter, useHover, useActive, useFocus,
-  useList, useMap, useField,
+  useList, useMap, useField, useGetData
 } from '../src/index'
 
 
@@ -123,6 +123,22 @@ const Map = () => {
   )
 }
 
+const Data = (url) => {
+  const { data, loading, error, getData } = useGetData('https://jsonplaceholder.typicode.com/users')
+
+  return (
+    <div>
+      {loading && <div>Loading...</div>}
+      {!loading && (
+        data.map(user => (
+          <div>{user.name}</div>
+        ))
+      )}
+      <button onClick={getData}>Refetch Data</button>
+    </div>
+  )
+}
+
 ReactDOM.render(
   <div>
     <Toggle />
@@ -134,6 +150,7 @@ ReactDOM.render(
     <Map />
     <Input />
     <Select />
+    <Data />
   </div>,
   document.getElementById('app'),
 )
