@@ -12,14 +12,15 @@ Vist [here](https://github.com/beizhedenglong/react-hooks-lib/blob/master/exampl
 
 ## Hooks
 
-| Name       | Input   | Output                                        |
-| ---------- | ------- | --------------------------------------------- |
-| useCounter | initial | { count, set, reset, inc, dec, incBy, decBy } |
-| useToggle  | initial | { on, set, reset, toggle }                    |
-| useList    | initial | { list, set, reset, push, sort, filter }      |
-| useHover   |         | { hovered, bind }                             |
-| useActive  |         | { active, bind }                              |
-| useFocus   |         | { focused, bind }                             |
+| Name       | Input   | Output                                          |
+| ---------- | ------- | ----------------------------------------------- |
+| useCounter | initial | { count, set, reset, inc, dec, incBy, decBy }   |
+| useToggle  | initial | { on, set, reset, toggle }                      |
+| useList    | initial | { list, set, reset, push, sort, filter }        |
+| useMap     | initial | { values, set, reset, clear, get, has, delete } |
+| useHover   | -       | { hovered, bind }                               |
+| useActive  | -       | { active, bind }                                |
+| useFocus   | -       | { focused, bind }                               |
 
 ## Usage
 
@@ -43,6 +44,40 @@ const Counter = () => {
 
 ```
 ### useToggle
+```js
+import { useToggle } from 'react-hooks-lib'
+
+const Toggle = () => {
+  const { on, toggle, reset } = useToggle(false)
+  return (
+    <div>
+      <h3>useToggle</h3>
+      {String(on)}
+      <button onClick={toggle}>toggle</button>
+      <button onClick={reset}>reset</button>
+    </div>
+  )
+}
+```
+
+### useList
+```js
+import { useList } from 'react-hooks-lib'
+const List = () => {
+  const { list, sort, filter } = useList([1, 4, 2, 3, 4, 2, 6, 8, 3, 4])
+  return (
+    <div>
+      <h3>useList</h3>
+      list:
+      {JSON.stringify(list)}
+      <button onClick={() => sort((x, y) => x - y)}>sort</button>
+      <button onClick={() => filter(x => x >= 4)}> greater than or equal to 4</button>
+    </div>
+  )
+}
+```
+
+### useMap
 
 ### useHover
 
@@ -62,4 +97,7 @@ const Hover = () => {
   )
 }
 ```
-TODO
+
+### useActive
+
+### useFocus

@@ -9,3 +9,5 @@ export { default as useActive } from './hooks/useActive'
 export { default as useFocus } from './hooks/useFocus'
 
 export { default as useList } from './hooks/useList'
+
+export { default as useMap } from './hooks/useMap'

@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {
   useToggle, useCounter, useHover, useActive, useFocus,
-  useList,
+  useList, useMap,
 } from '../src/index'
 
 
@@ -84,6 +84,17 @@ const List = () => {
   )
 }
 
+const Map = () => {
+  const { values, set } = useMap({ name: 'Victor', age: 18 })
+  return (
+    <div>
+      <h3>useMap</h3>
+      {JSON.stringify(values)}
+      <button onClick={() => set('age', age => age + 1)}>age + 1</button>
+    </div>
+  )
+}
+
 ReactDOM.render(
   <div>
     <Toggle />
@@ -92,6 +103,7 @@ ReactDOM.render(
     <Active />
     <Focus />
     <List />
+    <Map />
   </div>,
   document.getElementById('app'),
 )
