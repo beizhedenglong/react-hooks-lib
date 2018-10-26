@@ -21,6 +21,7 @@ Vist [here](https://github.com/beizhedenglong/react-hooks-lib/blob/master/exampl
 | useHover   | -       | { hovered, bind }                               |
 | useActive  | -       | { active, bind }                                |
 | useFocus   | -       | { focused, bind }                               |
+| useField   | -       | { value, set, reset, bind }                     |
 
 ## Usage
 
@@ -51,7 +52,6 @@ const Toggle = () => {
   const { on, toggle, reset } = useToggle(false)
   return (
     <div>
-      <h3>useToggle</h3>
       {String(on)}
       <button onClick={toggle}>toggle</button>
       <button onClick={reset}>reset</button>
@@ -67,7 +67,6 @@ const List = () => {
   const { list, sort, filter } = useList([1, 4, 2, 3, 4, 2, 6, 8, 3, 4])
   return (
     <div>
-      <h3>useList</h3>
       list:
       {JSON.stringify(list)}
       <button onClick={() => sort((x, y) => x - y)}>sort</button>
@@ -88,7 +87,6 @@ const Hover = () => {
   const { hovered, bind } = useHover()
   return (
     <div>
-      <h3>useHover</h3>
       <div {...bind}>
         hovered:
         {String(hovered)}
@@ -101,3 +99,34 @@ const Hover = () => {
 ### useActive
 
 ### useFocus
+
+### useField
+```js
+  import {useField} from 'react-hooks-lib'
+
+  const Input = () => {
+    const { value, bind } = useField('Type Here...')
+
+    return (
+      <div>
+        input text:
+        {value}
+        <input type="text" {...bind} />
+      </div>
+    )
+  }
+
+  const Select = () => {
+    const { value, bind } = useField('apple')
+    return (
+      <div>
+        selected:
+        {value}
+        <select {...bind}>
+          <option value="apple">apple</option>
+          <option value="orange">orange</option>
+        </select>
+      </div>
+    )
+  }
+```

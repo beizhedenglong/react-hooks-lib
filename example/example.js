@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {
   useToggle, useCounter, useHover, useActive, useFocus,
-  useList, useMap,
+  useList, useMap, useField,
 } from '../src/index'
 
 
@@ -29,6 +29,34 @@ const Counter = () => {
       <button onClick={inc}>+1</button>
       <button onClick={dec}>-1</button>
       <button onClick={reset}>reset</button>
+    </div>
+  )
+}
+
+const Input = () => {
+  const { value, bind } = useField('Type Here...')
+
+  return (
+    <div>
+      <h3>useFiled: input</h3>
+      input text:
+      {value}
+      <input type="text" {...bind} />
+    </div>
+  )
+}
+
+const Select = () => {
+  const { value, bind } = useField('apple')
+  return (
+    <div>
+      <h3>useFiled: select</h3>
+      selected:
+      {value}
+      <select {...bind}>
+        <option value="apple">apple</option>
+        <option value="orange">orange</option>
+      </select>
     </div>
   )
 }
@@ -104,6 +132,8 @@ ReactDOM.render(
     <Focus />
     <List />
     <Map />
+    <Input />
+    <Select />
   </div>,
   document.getElementById('app'),
 )
