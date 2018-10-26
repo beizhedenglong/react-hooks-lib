@@ -1,6 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { useToggle, useCounter, useHover } from '../src/index'
+import {
+  useToggle, useCounter, useHover, useActive, useFocus,
+  useList,
+} from '../src/index'
 
 
 const Toggle = () => {
@@ -24,7 +27,7 @@ const Counter = () => {
       <h3>useCounter</h3>
       {String(count)}
       <button onClick={inc}>+1</button>
-      <button onClick={dec}>+1</button>
+      <button onClick={dec}>-1</button>
       <button onClick={reset}>reset</button>
     </div>
   )
@@ -43,11 +46,52 @@ const Hover = () => {
   )
 }
 
+const Active = () => {
+  const { active, bind } = useActive()
+  return (
+    <div>
+      <h3>useActive</h3>
+      <div {...bind}>
+        active:
+        {String(active)}
+      </div>
+    </div>
+  )
+}
+
+const Focus = () => {
+  const { focused, bind } = useFocus()
+  return (
+    <div>
+      <h3>useFocus</h3>
+      focused:
+      {String(focused)}
+      <input type="text" {...bind} />
+    </div>
+  )
+}
+
+const List = () => {
+  const { list, sort, filter } = useList([1, 4, 2, 3, 4, 2, 6, 8, 3, 4])
+  return (
+    <div>
+      <h3>useList</h3>
+      list:
+      {JSON.stringify(list)}
+      <button onClick={() => sort((x, y) => x - y)}>sort</button>
+      <button onClick={() => filter(x => x >= 4)}> greater than or equal to 4</button>
+    </div>
+  )
+}
+
 ReactDOM.render(
   <div>
     <Toggle />
     <Counter />
     <Hover />
+    <Active />
+    <Focus />
+    <List />
   </div>,
   document.getElementById('app'),
 )

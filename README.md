@@ -16,7 +16,10 @@ Vist [here](https://github.com/beizhedenglong/react-hooks-lib/blob/master/exampl
 | ---------- | ------- | --------------------------------------------- |
 | useCounter | initial | { count, set, reset, inc, dec, incBy, decBy } |
 | useToggle  | initial | { on, set, reset, toggle }                    |
+| useList    | initial | { list, set, reset, push, sort, filter }      |
 | useHover   |         | { hovered, bind }                             |
+| useActive  |         | { active, bind }                              |
+| useFocus   |         | { focused, bind }                             |
 
 ## Usage
 
@@ -32,7 +35,7 @@ const Counter = () => {
     <div>
       {count}
       <button onClick={inc}>+1</button>
-      <button onClick={dec}>+1</button>
+      <button onClick={dec}>-1</button>
       <button onClick={reset}>reset</button>
     </div>
   )

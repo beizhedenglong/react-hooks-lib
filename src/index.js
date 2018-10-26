@@ -3,3 +3,9 @@ export { default as useToggle } from './hooks/useToggle'
 export { default as useCounter } from './hooks/useCounter'
 
 export { default as useHover } from './hooks/useHover'
+
+export { default as useActive } from './hooks/useActive'
+
+export { default as useFocus } from './hooks/useFocus'
+
+export { default as useList } from './hooks/useList'
