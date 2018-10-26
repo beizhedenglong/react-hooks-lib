@@ -7,12 +7,16 @@ A set of reusable [React Hooks](https://reactjs.org/docs/hooks-reference.html#us
 ## Installation
 `npm i react-hooks-lib --save`
 
+## Examples
+Vist [here](https://github.com/beizhedenglong/react-hooks-lib/blob/master/example/example.js)
+
 ## Hooks
 
 | Name       | Input   | Output                                        |
 | ---------- | ------- | --------------------------------------------- |
 | useCounter | initial | { count, set, reset, inc, dec, incBy, decBy } |
-| useToggle  | initial | {on, set, reset, toggle }                     |
+| useToggle  | initial | { on, set, reset, toggle }                    |
+| useHover   |         | { hovered, bind }                             |
 
 ## Usage
 
@@ -36,4 +40,23 @@ const Counter = () => {
 
 ```
 ### useToggle
+
+### useHover
+
+``` js
+import { useHover } from 'react-hooks-lib'
+
+const Hover = () => {
+  const { hovered, bind } = useHover()
+  return (
+    <div>
+      <h3>useHover</h3>
+      <div {...bind}>
+        hovered:
+        {String(hovered)}
+      </div>
+    </div>
+  )
+}
+```
 TODO
