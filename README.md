@@ -12,7 +12,7 @@ Vist [here](https://github.com/beizhedenglong/react-hooks-lib/blob/master/exampl
 
 ## Hooks
 
-| Name       | Input                      | Output                                              |
+| Name       | Arguments                  | Return                                              |
 | ---------- | -------------------------- | --------------------------------------------------- |
 | useCounter | initial                    | { count, set, reset, inc, dec, incBy, decBy }       |
 | useToggle  | initial                    | { on, set, reset, toggle }                          |
@@ -22,7 +22,7 @@ Vist [here](https://github.com/beizhedenglong/react-hooks-lib/blob/master/exampl
 | useActive  | -                          | { active, bind }                                    |
 | useFocus   | -                          | { focused, bind }                                   |
 | useField   | initial                    | { value, set, reset, bind }                         |
-| useField   | initialUrl, initialOptions | { loading, data, error, fetch, setUrl, setOptions } |
+| useFetch   | initialUrl, initialOptions | { loading, data, error, fetch, setUrl, setOptions } |
 
 ## Usage
 
