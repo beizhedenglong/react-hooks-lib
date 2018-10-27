@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {
   useToggle, useCounter, useHover, useActive, useFocus,
-  useList, useMap, useField, useFetch,
+  useList, useMap, useField, useFetch, useTouch,
 } from '../src/index'
 
 
@@ -149,6 +149,16 @@ const Fetch = () => {
   )
 }
 
+const Touch = () => {
+  const { touched, bind } = useTouch()
+  return (
+    <div>
+      <h3>useTouch</h3>
+      <div {...bind}>{`touched: ${touched}`}</div>
+    </div>
+  )
+}
+
 ReactDOM.render(
   <div>
     <Toggle />
@@ -156,6 +166,7 @@ ReactDOM.render(
     <Hover />
     <Active />
     <Focus />
+    <Touch />
     <List />
     <Map />
     <Input />

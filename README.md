@@ -21,6 +21,7 @@ Vist [here](https://github.com/beizhedenglong/react-hooks-lib/blob/master/exampl
 | useHover   | -                          | { hovered, bind }                                   |
 | useActive  | -                          | { active, bind }                                    |
 | useFocus   | -                          | { focused, bind }                                   |
+| useTouch   | -                          | { touched, bind }                                   |
 | useField   | initial                    | { value, set, reset, bind }                         |
 | useFetch   | initialUrl, initialOptions | { loading, data, error, fetch, setUrl, setOptions } |
 
@@ -100,6 +101,8 @@ const Hover = () => {
 ### useActive
 
 ### useFocus
+
+### useTouch
 
 ### useField
 ```js

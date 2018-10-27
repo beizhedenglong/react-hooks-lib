@@ -8,6 +8,8 @@ export { default as useActive } from './hooks/useActive'
 
 export { default as useFocus } from './hooks/useFocus'
 
+export { default as useTouch } from './hooks/useTouch'
+
 export { default as useList } from './hooks/useList'
 
 export { default as useMap } from './hooks/useMap'
