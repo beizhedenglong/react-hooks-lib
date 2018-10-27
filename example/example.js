@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {
   useToggle, useCounter, useHover, useActive, useFocus,
-  useList, useMap, useField,
+  useList, useMap, useField, useFetch,
 } from '../src/index'
 
 
@@ -123,6 +123,32 @@ const Map = () => {
   )
 }
 
+const Fetch = () => {
+  const getUrl = text => `https://api.github.com/search/repositories?q=${text}`
+  const { value, bind } = useField('react')
+  const { data, loading, setUrl } = useFetch(getUrl('react'))
+  return (
+    <div>
+      <h3>useFetch</h3>
+      <input type="text" value={value} {...bind} />
+      <button onClick={() => {
+        setUrl(getUrl(value))
+      }}
+      >
+        search
+      </button>
+      {
+        loading
+          ? <div>Loading...</div>
+          : (
+            <span>
+              {`total_count: ${data.total_count}`}
+            </span>)
+      }
+    </div>
+  )
+}
+
 ReactDOM.render(
   <div>
     <Toggle />
@@ -134,6 +160,7 @@ ReactDOM.render(
     <Map />
     <Input />
     <Select />
+    <Fetch />
   </div>,
   document.getElementById('app'),
 )
