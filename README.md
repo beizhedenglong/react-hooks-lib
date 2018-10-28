@@ -159,10 +159,7 @@ const Fetch = () => {
       {
         loading
           ? <div>Loading...</div>
-          : (
-            <span>
-              {`total_count: ${data.total_count}`}
-            </span>)
+          : (<span>{`total_count: ${data.total_count}`}</span>)
       }
     </div>
   )
