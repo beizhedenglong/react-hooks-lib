@@ -12,19 +12,20 @@ Vist [here](https://github.com/beizhedenglong/react-hooks-lib/blob/master/exampl
 
 ## Hooks
 
-| Name          | Arguments                  | Return                                              |
-| ------------- | -------------------------- | --------------------------------------------------- |
-| useMergeState | initial                    | { state, set }                                      |
-| useCounter    | initial                    | { count, set, reset, inc, dec, incBy, decBy }       |
-| useToggle     | initial                    | { on, set, reset, toggle }                          |
-| useList       | initial                    | { list, set, reset, push, sort, filter }            |
-| useMap        | initial                    | { values, set, reset, clear, get, has, delete }     |
-| useHover      | -                          | { hovered, bind }                                   |
-| useActive     | -                          | { active, bind }                                    |
-| useFocus      | -                          | { focused, bind }                                   |
-| useTouch      | -                          | { touched, bind }                                   |
-| useField      | initial                    | { value, set, reset, bind }                         |
-| useFetch      | initialUrl, initialOptions | { loading, data, error, fetch, setUrl, setOptions } |
+| Name            | Arguments                  | Return                                              |
+| --------------- | -------------------------- | --------------------------------------------------- |
+| useMergeState   | initial                    | { state, set }                                      |
+| useCounter      | initial                    | { count, set, reset, inc, dec, incBy, decBy }       |
+| useToggle       | initial                    | { on, set, reset, toggle }                          |
+| useList         | initial                    | { list, set, reset, push, sort, filter }            |
+| useMap          | initial                    | { values, set, reset, clear, get, has, delete }     |
+| useHover        | -                          | { hovered, bind }                                   |
+| useActive       | -                          | { active, bind }                                    |
+| useFocus        | -                          | { focused, bind }                                   |
+| useTouch        | -                          | { touched, bind }                                   |
+| useField        | initial                    | { value, set, reset, bind }                         |
+| useFetch        | initialUrl, initialOptions | { loading, data, error, fetch, setUrl, setOptions } |
+| useOnlineStatus | _                          | { online }                                          |
 
 ## Usage
 
@@ -165,3 +166,5 @@ const Fetch = () => {
   )
 }
 ```
+
+### useOnlineStatus

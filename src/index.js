@@ -19,3 +19,5 @@ export { default as useField } from './hooks/useField'
 export { default as useFetch } from './hooks/useFetch'
 
 export { default as useMergeState } from './hooks/useMergeState'
+
+export { default as useOnlineStatus } from './hooks/useOnlineStatus'

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import {
   useToggle, useCounter, useHover, useActive, useFocus,
   useList, useMap, useField, useFetch, useTouch, useMergeState,
+  useOnlineStatus,
 } from '../src/index'
 
 const MergeState = () => {
@@ -168,21 +169,43 @@ const Touch = () => {
     </div>
   )
 }
-
+const OnlineStatus = () => {
+  const { online } = useOnlineStatus()
+  return (
+    <div>
+      <h3>useOnlineStatus</h3>
+      <div>{`online: ${online}`}</div>
+    </div>
+  )
+}
 ReactDOM.render(
   <div>
     <MergeState />
+    <hr />
     <Toggle />
+    <hr />
     <Counter />
+    <hr />
     <Hover />
+    <hr />
     <Active />
+    <hr />
     <Focus />
+    <hr />
     <Touch />
+    <hr />
     <List />
+    <hr />
     <Map />
+    <hr />
     <Input />
+    <hr />
     <Select />
+    <hr />
     <Fetch />
+    <hr />
+    <OnlineStatus />
+    <hr />
   </div>,
   document.getElementById('app'),
 )
