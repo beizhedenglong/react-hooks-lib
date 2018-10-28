@@ -140,7 +140,7 @@ const Hover = () => {
 
 ### useFetch
 ```js
-import {useField, useFetch} from 'react-hooks-lib'
+import { useField, useFetch } from 'react-hooks-lib'
 
 const Fetch = () => {
   const getUrl = text => `https://api.github.com/search/repositories?q=${text}`
