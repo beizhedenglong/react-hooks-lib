@@ -2,9 +2,22 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {
   useToggle, useCounter, useHover, useActive, useFocus,
-  useList, useMap, useField, useFetch, useTouch,
+  useList, useMap, useField, useFetch, useTouch, useMergeState,
 } from '../src/index'
 
+const MergeState = () => {
+  const { state, set } = useMergeState({ name: 'Victor' })
+  return (
+    <div>
+      <h3>useMergeState</h3>
+      <div>
+        {`state: ${JSON.stringify(state)}`}
+        <button onClick={() => set({ age: 1 })}>merge age</button>
+        <button onClick={() => set(({ age = 1 }) => ({ age: age + 1 }))}>age+1</button>
+      </div>
+    </div>
+  )
+}
 
 const Toggle = () => {
   const { on, toggle, reset } = useToggle(false)
@@ -140,10 +153,7 @@ const Fetch = () => {
       {
         loading
           ? <div>Loading...</div>
-          : (
-            <span>
-              {`total_count: ${data.total_count}`}
-            </span>)
+          : (<span>{`total_count: ${data.total_count}`}</span>)
       }
     </div>
   )
@@ -161,6 +171,7 @@ const Touch = () => {
 
 ReactDOM.render(
   <div>
+    <MergeState />
     <Toggle />
     <Counter />
     <Hover />
