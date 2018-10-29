@@ -21,3 +21,9 @@ export { default as useFetch } from './hooks/useFetch'
 export { default as useMergeState } from './hooks/useMergeState'
 
 export { default as useOnlineStatus } from './hooks/useOnlineStatus'
+
+export { default as useDidMount } from './hooks/useDidMount'
+
+export { default as useDidUpdate } from './hooks/useDidUpdate'
+
+export { default as useWillUnmount } from './hooks/useWillUnmount'

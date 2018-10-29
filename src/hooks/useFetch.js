@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react'
-import { cancelablePromise } from '../utils'
+import { useState, useEffect, useRef } from 'react'
+import { cancelablePromise, shallowEqual } from '../utils'
 
 // Inspired by https://github.com/tkh44/holen
-const useFetch = (initialUrl, initialOptions = {}) => {
+const useFetch = (initialUrl, initialOptions = {}, onMount = true) => {
   const [config, setConfig] = useState({
     url: initialUrl,
     options: initialOptions,
@@ -10,10 +10,14 @@ const useFetch = (initialUrl, initialOptions = {}) => {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState(null)
   const [error, setError] = useState(null)
-
+  const canFetchRef = useRef(onMount)
 
   useEffect(() => {
     const { url, options } = config
+    if (!canFetchRef.current) {
+      canFetchRef.current = true
+      return
+    }
     const cancelable = cancelablePromise(fetch(url, options))
     setLoading(true)
     cancelable.promise
@@ -28,13 +32,21 @@ const useFetch = (initialUrl, initialOptions = {}) => {
         return e
       })
 
-    return () => cancelable.cancel()
+    return () => cancelable.cancel() // eslint-disable-line
   }, [config.url, config.options])
 
-  const updateConfig = key => updater => setConfig(prev => ({
-    ...prev,
-    [key]: typeof updater === 'function' ? updater(prev[key]) : updater,
-  }))
+  const updateConfig = key => updater => setConfig((prev) => {
+    const updated = typeof updater === 'function' ? updater(prev[key]) : updater
+
+    // make sure not to re-fetch data when updated is shallow equal to prev[key]
+    if (shallowEqual(updated, prev[key])) {
+      return prev
+    }
+    return ({
+      ...prev,
+      [key]: updated,
+    })
+  })
   return {
     setUrl: updateConfig('url'),
     setOptions: updateConfig('options'),
@@ -43,7 +55,8 @@ const useFetch = (initialUrl, initialOptions = {}) => {
     error,
     fetch: (url, options) => setConfig(prev => ({
       url: url || prev.url,
-      options: options || prev.options,
+      // change reference of options， so that we can re-fetch data when call fetch
+      options: { ...(options || prev.options) },
     })),
   }
 }

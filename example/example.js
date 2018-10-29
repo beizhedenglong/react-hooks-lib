@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import {
   useToggle, useCounter, useHover, useActive, useFocus,
   useList, useMap, useField, useFetch, useTouch, useMergeState,
-  useOnlineStatus,
+  useOnlineStatus, useDidMount, useWillUnmount, useDidUpdate,
 } from '../src/index'
 
 const MergeState = () => {
@@ -143,7 +143,7 @@ const Fetch = () => {
   const { data, loading, setUrl } = useFetch(getUrl('react'))
   return (
     <div>
-      <h3>useFetch</h3>
+      <h3>useFetch: GET</h3>
       <input type="text" value={value} {...bind} />
       <button onClick={() => {
         setUrl(getUrl(value))
@@ -156,6 +156,27 @@ const Fetch = () => {
           ? <div>Loading...</div>
           : (<span>{`total_count: ${data.total_count}`}</span>)
       }
+    </div>
+  )
+}
+
+const PostFetch = () => {
+  const { data, loading, setOptions } = useFetch(
+    'https://jsonplaceholder.typicode.com/posts',
+    { method: 'POST' },
+    false,
+  )
+  return (
+    <div>
+      <h3>useFetch: POST</h3>
+      {!loading && JSON.stringify(data)}
+      <button
+        onClick={() => setOptions(prev => ({
+          ...prev, body: JSON.stringify([1, 2, 3]),
+        }))}
+      >
+        submit
+      </button>
     </div>
   )
 }
@@ -178,6 +199,36 @@ const OnlineStatus = () => {
     </div>
   )
 }
+
+const Lifecycle = ({ count }) => {
+  useDidMount(() => {
+    console.log('didMount')
+  })
+  useWillUnmount(() => {
+    console.log('willUnmount')
+  })
+  useDidUpdate(() => {
+    console.log('didUpdate')
+  })
+  return `count: ${count}`
+}
+const LifecycleExample = () => {
+  const { count, inc } = useCounter(0)
+  const counter2 = useCounter(2)
+  return (
+    <div>
+      <h3>Lifecycle</h3>
+      {
+        count <= 3
+          ? <Lifecycle count={count} count2={counter2.count} />
+          : 'count > 3, component did unmount'
+      }
+
+      <button onClick={inc}>+1</button>
+    </div>
+  )
+}
+
 ReactDOM.render(
   <div>
     <MergeState />
@@ -203,9 +254,11 @@ ReactDOM.render(
     <Select />
     <hr />
     <Fetch />
+    <PostFetch />
     <hr />
     <OnlineStatus />
     <hr />
+    <LifecycleExample />
   </div>,
   document.getElementById('app'),
 )
