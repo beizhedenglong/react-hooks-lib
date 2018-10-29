@@ -7,14 +7,13 @@ import {
 } from '../src/index'
 
 const MergeState = () => {
-  const { state, set } = useMergeState({ name: 'Victor' })
+  const { state, set } = useMergeState({ name: 'Victor', age: 1 })
   return (
     <div>
       <h3>useMergeState</h3>
       <div>
         {`state: ${JSON.stringify(state)}`}
-        <button onClick={() => set({ age: 1 })}>merge age</button>
-        <button onClick={() => set(({ age = 1 }) => ({ age: age + 1 }))}>age+1</button>
+        <button onClick={() => set(({ age }) => ({ age: age + 1 }))}>age+1</button>
       </div>
     </div>
   )
