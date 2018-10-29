@@ -12,22 +12,22 @@ Visit [here](https://github.com/beizhedenglong/react-hooks-lib/blob/master/examp
 
 ## Hooks
 
-| Name                              | Arguments                           | Returns                                              |
-| --------------------------------- | ----------------------------------- | --------------------------------------------------- |
-| [`useMergeState`](#useMergeState(initial?))   | initial                             | { state, set }                                      |
-| [`useDidMount`](#useDidMount(f))       | f                                   | -                                                   |
-| [`useWillUnmount`](#useWillUnmount(f)) | f                                   | -                                                   |
-| [`useDidUpdate`](#useDidUpdate(f, options))     | f, conditions                       | -                                                   |
-| [`useCounter`](#useCounter)         | initial                             | { count, set, reset, inc, dec, incBy, decBy }       |
-| [`useToggle`](#useToggle)           | initial                             | { on, set, reset, toggle }                          |
-| [`useList`](#useList)               | initial                             | { list, set, reset, push, sort, filter }            |
-| [`useMap`](#useMap)                 | initial                             | { values, set, reset, clear, get, has, delete }     |
-| [`useHover`](#useHover)             | -                                   | { hovered, bind }                                   |
-| [`useActive`](#useActive)           | -                                   | { active, bind }                                    |
-| [`useFocus`](#useFocus)             | -                                   | { focused, bind }                                   |
-| [`useTouch`](#useTouch)             | -                                   | { touched, bind }                                   |
-| [`useField`](#useField)             | initial                             | { value, set, reset, bind }                         |
-| [`useFetch`](#useFetch)             | initialUrl, initialOptions, onMount | { loading, data, error, fetch, setUrl, setOptions } |
+| Name                                          | Arguments                           | Returns                                             |
+| --------------------------------------------- | ----------------------------------- | --------------------------------------------------- |
+| [`useMergeState`](#`useMergeState(initial?)`) | initial                             | { state, set }                                      |
+| [`useDidMount`](#`useDidMount(f)`)            | f                                   | -                                                   |
+| [`useWillUnmount`](#`useWillUnmount(f)`)      | f                                   | -                                                   |
+| [`useDidUpdate`](#`useDidUpdate(f, options)`) | f, conditions                       | -                                                   |
+| [`useCounter`](#useCounter)                   | initial                             | { count, set, reset, inc, dec, incBy, decBy }       |
+| [`useToggle`](#useToggle)                     | initial                             | { on, set, reset, toggle }                          |
+| [`useList`](#useList)                         | initial                             | { list, set, reset, push, sort, filter }            |
+| [`useMap`](#useMap)                           | initial                             | { values, set, reset, clear, get, has, delete }     |
+| [`useHover`](#useHover)                       | -                                   | { hovered, bind }                                   |
+| [`useActive`](#useActive)                     | -                                   | { active, bind }                                    |
+| [`useFocus`](#useFocus)                       | -                                   | { focused, bind }                                   |
+| [`useTouch`](#useTouch)                       | -                                   | { touched, bind }                                   |
+| [`useField`](#useField)                       | initial                             | { value, set, reset, bind }                         |
+| [`useFetch`](#useFetch)                       | initialUrl, initialOptions, onMount | { loading, data, error, fetch, setUrl, setOptions } |
 
 ## API
 
