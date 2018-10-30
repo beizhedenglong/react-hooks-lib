@@ -36,7 +36,7 @@ Visit [here](https://github.com/beizhedenglong/react-hooks-lib/blob/master/examp
 - `initial?: Object`: Initial state object, default is `{}`.
 #### Returns
 - `state: Object`: Current state object.
-- `set: (Function | Object) => Object`: Like `setState` in React class component, merge the old and new state together.
+- `set: ((Object) => Object) | Object`: Like `setState` in React class component, merge the old and new state together.
 ```js
 import { useMergeState } from 'react-hooks-lib'
 
@@ -56,9 +56,10 @@ const MergeState = () => {
 ### `useDidMount(f)`
 Similar to `componentDidMount` in React class component. 
 #### Arguments
-- `f: () => void`: f will be called when component did mount.
+- `f: () => void`: f is  called when component did mount.
 ```js
 import { useDidMount } from 'react-hooks-lib'
+
 const MyComponent = () => {
   useDidMount(() => {
     console.log('didMount')
@@ -67,12 +68,40 @@ const MyComponent = () => {
 ```
 
 ### `useWillUnmount(f)`
+Close to the `componentWillUnmount` in React class component.
 #### Arguments
-#### Returns
+- `f: () => void`: f is called when component will unmount.
+```js
+import { useWillUnmount } from 'react-hooks-lib'
+
+const MyComponent = () => {
+  useWillUnmount(() => {
+    console.log('willUnmount')
+  })
+}
+```
 
 ### `useDidUpdate(f, options?)`
+Similar to `componentDidUpdate`, it only runs on updates.
 #### Arguments
-#### Returns
+- `f: () => Function | void`: f is called on every updates. Like `useEffect`, f can return a clean-up function.
+- `conditions?: Array<any>`: Optional array for conditionally firing an effect, same as the second argument passed to `useEffect`.
+```js
+import { useDidUpdate, useCounter } from 'react-hooks-lib'
+
+const MyComponent = () => {
+  const { count, inc } = useCounter(0)
+  useDidUpdate(() => {
+    console.log('DidUpdate')
+  })
+  return (
+    <div>
+      {`count: ${count}`}
+      <button onClick={inc}>+1</button>
+    </div>
+  )
+}
+```
 
 ### useCounter
 ```js
