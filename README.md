@@ -12,47 +12,32 @@ Visit [here](https://github.com/beizhedenglong/react-hooks-lib/blob/master/examp
 
 ## Hooks
 
-| Name                                          | Arguments                           | Returns                                             |
-| --------------------------------------------- | ----------------------------------- | --------------------------------------------------- |
-| [`useMergeState`](#usemergestateinitial) | initial                             | { state, set }                                      |
-| [`useDidMount`](#usedidmountf)            | f                                   | -                                                   |
-| [`useWillUnmount`](#usewillunmountf)      | f                                   | -                                                   |
-| [`useDidUpdate`](#usedidupdatef-options) | f, conditions                       | -                                                   |
-| [`useCounter`](#useCounter)                   | initial                             | { count, set, reset, inc, dec, incBy, decBy }       |
-| [`useToggle`](#useToggle)                     | initial                             | { on, set, reset, toggle }                          |
-| [`useList`](#useList)                         | initial                             | { list, set, reset, push, sort, filter }            |
-| [`useMap`](#useMap)                           | initial                             | { values, set, reset, clear, get, has, delete }     |
-| [`useHover`](#useHover)                       | -                                   | { hovered, bind }                                   |
-| [`useActive`](#useActive)                     | -                                   | { active, bind }                                    |
-| [`useFocus`](#useFocus)                       | -                                   | { focused, bind }                                   |
-| [`useTouch`](#useTouch)                       | -                                   | { touched, bind }                                   |
-| [`useField`](#useField)                       | initial                             | { value, set, reset, bind }                         |
-| [`useFetch`](#useFetch)                       | initialUrl, initialOptions, onMount | { loading, data, error, fetch, setUrl, setOptions } |
+| Name                                                     | Arguments                           | Returns                                             |
+| -------------------------------------------------------- | ----------------------------------- | --------------------------------------------------- |
+| <h6>Lifecycles</h6>                                      |                                     |                                                     |
+| [`useDidMount`](#usedidmountf)                           | f                                   | -                                                   |
+| [`useWillUnmount`](#usewillunmountf)                     | f                                   | -                                                   |
+| [`useDidUpdate`](#usedidupdatef-options)                 | f, conditions                       | -                                                   |
+| <h6>State</h6>                                           |                                     |                                                     |
+| [`useMergeState`](#usemergestateinitial)                 | initial                             | { state, set }                                      |
+| [`useCounter`](#useCounterInitial)                       | initial                             | { count, set, reset, inc, dec, incBy, decBy }       |
+| [`useToggle`](#useToggleInitial)                         | initial                             | { on, set, reset, toggle }                          |
+| [`useList`](#useListInitial)                             | initial                             | { list, set, reset, push, sort, filter }            |
+| [`useMap`](#useMapInitial)                                      | initial                             | { values, set, reset, clear, get, has, delete }     |
+| <h6>Network</h6>                                         |                                     |                                                     |
+| [`useFetch`](#useFetchInitialUrl-initialOptions-onMount) | initialUrl, initialOptions, onMount | { loading, data, error, fetch, setUrl, setOptions } |
+| [`useOnlineStatus`](#useonlinestatus)                    |                                     |                                                     |
+| <h6>Feedback</h6>                                        |                                     |                                                     |
+| [`useHover`](#useHover)                                  | -                                   | { hovered, bind }                                   |
+| [`useActive`](#useActive)                                | -                                   | { active, bind }                                    |
+| [`useFocus`](#useFocus)                                  | -                                   | { focused, bind }                                   |
+| [`useTouch`](#useTouch)                                  | -                                   | { touched, bind }                                   |
+| <h6>Data Entry</h6>                                      |                                     |                                                     |
+| [`useField`](#useFieldInitial)                                  | initial                             | { value, set, reset, bind }                         |
+
 
 ## API
 
-### `useMergeState(initial?)`
-#### Arguments
-- `initial?: Object`: Initial state object, default is `{}`.
-#### Returns
-- `state: Object`: Current state object.
-- `set: ((Object) => Object) | Object`: Like `setState` in React class component, merge the old and new state together.
-```js
-import { useMergeState } from 'react-hooks-lib'
-
-const MergeState = () => {
-  const { state, set } = useMergeState({ name: 'Victor', age: 1 })
-  return (
-    <div>
-      <h3>useMergeState</h3>
-      <div>
-        {`state: ${JSON.stringify(state)}`}
-        <button onClick={() => set(({ age }) => ({ age: age + 1 }))}>age+1</button>
-      </div>
-    </div>
-  )
-}
-```
 ### `useDidMount(f)`
 Similar to `componentDidMount` in React class component. 
 #### Arguments
@@ -103,7 +88,30 @@ const MyComponent = () => {
 }
 ```
 
-### useCounter
+### `useMergeState(initial?)`
+#### Arguments
+- `initial?: Object`: Initial state object, default is `{}`.
+#### Returns
+- `state: Object`: Current state object.
+- `set: ((Object) => Object) | Object`: Like `setState` in React class component, merge the old and new state together.
+```js
+import { useMergeState } from 'react-hooks-lib'
+
+const MergeState = () => {
+  const { state, set } = useMergeState({ name: 'Victor', age: 1 })
+  return (
+    <div>
+      <h3>useMergeState</h3>
+      <div>
+        {`state: ${JSON.stringify(state)}`}
+        <button onClick={() => set(({ age }) => ({ age: age + 1 }))}>age+1</button>
+      </div>
+    </div>
+  )
+}
+```
+
+### `useCounter(initial)`
 ```js
 import { useCounter } from 'react-hooks-lib'
 
@@ -122,7 +130,7 @@ const Counter = () => {
 }
 
 ```
-### useToggle
+### `useToggle(initial)`
 ```js
 import { useToggle } from 'react-hooks-lib'
 
@@ -138,7 +146,7 @@ const Toggle = () => {
 }
 ```
 
-### useList
+### `useList(initial)`
 ```js
 import { useList } from 'react-hooks-lib'
 const List = () => {
@@ -154,9 +162,39 @@ const List = () => {
 }
 ```
 
-### useMap
+### `useMap(initial)`
 
-### useHover
+### `useFetch(initialUrl, initialOptions?, onMount?)`
+```js
+import { useField, useFetch } from 'react-hooks-lib'
+
+const Fetch = () => {
+  const getUrl = text => `https://api.github.com/search/repositories?q=${text}`
+  const { value, bind } = useField('react')
+  const { data, loading, setUrl } = useFetch(getUrl('react'))
+  return (
+    <div>
+      <h3>useFetch</h3>
+      <input type="text" value={value} {...bind} />
+      <button onClick={() => {
+        setUrl(getUrl(value))
+      }}
+      >
+        search
+      </button>
+      {
+        loading
+          ? <div>Loading...</div>
+          : (<span>{`total_count: ${data.total_count}`}</span>)
+      }
+    </div>
+  )
+}
+```
+
+### `useOnlineStatus()`
+
+### `useHover()`
 
 ``` js
 import { useHover } from 'react-hooks-lib'
@@ -174,13 +212,13 @@ const Hover = () => {
 }
 ```
 
-### useActive
+### `useActive()`
 
-### useFocus
+### `useFocus()`
 
-### useTouch
+### `useTouch()`
 
-### useField
+### `useField(initial)`
 ```js
   import {useField} from 'react-hooks-lib'
 
@@ -210,33 +248,3 @@ const Hover = () => {
     )
   }
 ```
-
-### useFetch
-```js
-import { useField, useFetch } from 'react-hooks-lib'
-
-const Fetch = () => {
-  const getUrl = text => `https://api.github.com/search/repositories?q=${text}`
-  const { value, bind } = useField('react')
-  const { data, loading, setUrl } = useFetch(getUrl('react'))
-  return (
-    <div>
-      <h3>useFetch</h3>
-      <input type="text" value={value} {...bind} />
-      <button onClick={() => {
-        setUrl(getUrl(value))
-      }}
-      >
-        search
-      </button>
-      {
-        loading
-          ? <div>Loading...</div>
-          : (<span>{`total_count: ${data.total_count}`}</span>)
-      }
-    </div>
-  )
-}
-```
-
-### useOnlineStatus
