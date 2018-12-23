@@ -4,6 +4,7 @@ import {
   useToggle, useCounter, useHover, useActive, useFocus,
   useList, useMap, useField, useFetch, useTouch, useMergeState,
   useOnlineStatus, useDidMount, useWillUnmount, useDidUpdate,
+  createContextState,
 } from '../src/index'
 
 const MergeState = () => {
@@ -228,8 +229,24 @@ const LifecycleExample = () => {
   )
 }
 
+const { ContextProvider, useContextState } = createContextState({ counter: 1 })
+
+const ContextState = () => {
+  const { state, set } = useContextState()
+  return (
+    <div>
+      counter:
+      {state.counter}
+      <button onClick={() => set(prev => ({ counter: prev.counter + 1 }))}>+1</button>
+    </div>
+  )
+}
+
 ReactDOM.render(
   <div>
+    <ContextProvider>
+      <ContextState />
+    </ContextProvider>
     <MergeState />
     <hr />
     <Toggle />

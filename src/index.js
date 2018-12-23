@@ -27,3 +27,5 @@ export { default as useDidMount } from './hooks/useDidMount'
 export { default as useDidUpdate } from './hooks/useDidUpdate'
 
 export { default as useWillUnmount } from './hooks/useWillUnmount'
+
+export { default as createGlobalState, createContextState } from './hooks/useGlobalState'
