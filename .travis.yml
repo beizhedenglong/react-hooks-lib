@@ -12,3 +12,5 @@ notifications:
   email: false
 install: yarn 
 script: yarn test && yarn build
+after_success:
+  - yarn report-coverage
