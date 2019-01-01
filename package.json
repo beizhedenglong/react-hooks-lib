@@ -33,10 +33,12 @@
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-react-hooks": "next",
     "jest": "^23.6.0",
+    "jest-dom": "^3.0.0",
     "microbundle": "^0.6.0",
     "parcel-bundler": "^1.10.3",
     "react": "16.7.0-alpha.2",
     "react-dom": "16.7.0-alpha.2",
+    "react-testing-library": "^5.4.2",
     "regenerator-runtime": "^0.13.1"
   },
   "peerDependencies": {

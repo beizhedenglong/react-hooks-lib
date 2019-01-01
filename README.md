@@ -1,4 +1,4 @@
-# React Hooks Lib
+# React Hooks Lib &middot; [![Build Status](https://travis-ci.org/beizhedenglong/react-hooks-lib.svg?branch=master)](https://travis-ci.org/beizhedenglong/react-hooks-lib)
 
 A set of reusable [React Hooks](https://reactjs.org/docs/hooks-reference.html#usestate).
 
