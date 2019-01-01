@@ -235,6 +235,7 @@ const ContextState = () => {
   const { state, set } = useContextState()
   return (
     <div>
+      <h3>ContextState</h3>
       counter:
       {state.counter}
       <button onClick={() => set(prev => ({ counter: prev.counter + 1 }))}>+1</button>

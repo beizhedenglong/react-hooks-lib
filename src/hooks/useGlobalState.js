@@ -13,10 +13,10 @@ const createGlobalState = (initial = {}) => {
     }
     listeners.forEach(f => f())
   }
-  const context = createContext(initial)
+  const context = createContext(state)
   const { Provider, Consumer } = context
   const GlobalProvider = ({ children }) => {
-    const [value, setValue] = useState(initial)
+    const [value, setValue] = useState(state)
     useEffect(() => {
       const listener = () => {
         if (state !== value) {
@@ -46,6 +46,7 @@ const createGlobalState = (initial = {}) => {
     GlobalConsumer: Consumer,
     useGlobalState,
     set,
+    getState: () => state,
   }
 }
 
@@ -56,6 +57,7 @@ export const createContextState = (initial = {}) => {
     ContextConsumer: globalState.GlobalConsumer,
     set: globalState.set,
     useContextState: globalState.useGlobalState,
+    getState: globalState.getState,
   }
 }
 export default createGlobalState

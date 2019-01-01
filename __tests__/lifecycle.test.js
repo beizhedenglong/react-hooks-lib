@@ -39,7 +39,7 @@ const sleep = time => new Promise((resolve) => {
   setTimeout(() => resolve(true), time)
 })
 
-test('didMount', async () => {
+test('lifecycle', async () => {
   await sleep(10)
   expect(didMountFn).toBeCalledTimes(1)
   expect(didUpdateFn).toBeCalledTimes(0)
