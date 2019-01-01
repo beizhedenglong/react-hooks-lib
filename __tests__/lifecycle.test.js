@@ -10,7 +10,7 @@ import {
 const didMountFn = jest.fn()
 const willUnmountFn = jest.fn()
 const didUpdateFn = jest.fn()
-
+jest.useFakeTimers()
 
 const Lifecycle = ({ count }) => {
   useDidMount(didMountFn)
@@ -35,19 +35,15 @@ const LifecycleExample = () => {
 }
 const { getByText, getByTestId } = render(<LifecycleExample />)
 
-const sleep = time => new Promise((resolve) => {
-  setTimeout(() => resolve(true), time)
-})
-
 test('lifecycle', async () => {
-  await sleep(10)
+  jest.runAllTimers()
   expect(didMountFn).toBeCalledTimes(1)
   expect(didUpdateFn).toBeCalledTimes(0)
   expect(willUnmountFn).toBeCalledTimes(0)
 
   fireEvent.click(getByText('+1'))
   fireEvent.click(getByText('+1'))
-  await sleep(10)
+  jest.runAllTimers()
   expect(getByTestId('count-value').textContent).toBe('2')
   expect(didMountFn).toBeCalledTimes(1)
   expect(didUpdateFn).toBeCalledTimes(2)
@@ -55,7 +51,7 @@ test('lifecycle', async () => {
 
   fireEvent.click(getByText('+1'))
   fireEvent.click(getByText('+1'))
-  await sleep(10)
+  jest.runAllTimers()
   expect(didMountFn).toBeCalledTimes(1)
   expect(didUpdateFn).toBeCalledTimes(3)
   expect(willUnmountFn).toBeCalledTimes(1)
