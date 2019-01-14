@@ -1,4 +1,4 @@
-# React Hooks Lib &middot; [![Build Status](https://travis-ci.org/beizhedenglong/react-hooks-lib.svg?branch=master)](https://travis-ci.org/beizhedenglong/react-hooks-lib)
+# React Hooks Lib &middot; ![](https://img.shields.io/github/license/beizhedenglong/react-hooks-lib.svg) [![Build Status](https://travis-ci.org/beizhedenglong/react-hooks-lib.svg?branch=master)](https://travis-ci.org/beizhedenglong/react-hooks-lib)
 
 A set of reusable [React Hooks](https://reactjs.org/docs/hooks-reference.html#usestate).
 
@@ -19,13 +19,13 @@ Visit [here](https://github.com/beizhedenglong/react-hooks-lib/blob/master/examp
 | [`useWillUnmount`](#usewillunmountf)                     | f                                   | -                                                          |
 | [`useDidUpdate`](#usedidupdatef-options)                 | f, conditions                       | -                                                          |
 | <h6>State</h6>                                           |                                     |                                                            |
-| [`createContextState`](#createContextStateInitial)                                     | initial                             | { ContextProvider, ContextConsumer,  set, useContextState} |
-| [`createGlobalState`](#createGlobalStateInitial)                                      | initial                             | { GlobalProvider, GlobalConsumer, set, useGlobalState}     |
+| [`createContextState`](#createContextStateInitial)       | initial                             | { ContextProvider, ContextConsumer,  set, useContextState} |
+| [`createGlobalState`](#createGlobalStateInitial)         | initial                             | { GlobalProvider, GlobalConsumer, set, useGlobalState}     |
 | [`useMergeState`](#usemergestateinitial)                 | initial                             | { state, set }                                             |
-| [`useCounter`](#useCounterInitial)                       | initial                             | { count, set, reset, inc, dec }              |
+| [`useCounter`](#useCounterInitial)                       | initial                             | { count, set, reset, inc, dec }                            |
 | [`useToggle`](#useToggleInitial)                         | initial                             | { on, set, reset, toggle }                                 |
 | [`useList`](#useListInitial)                             | initial                             | { list, set, reset, push, sort, filter }                   |
-| [`useMap`](#useMapInitial)                               | initial                             | { values, set, reset, clear, get, has, del }            |
+| [`useMap`](#useMapInitial)                               | initial                             | { values, set, reset, clear, get, has, del }               |
 | <h6>Network</h6>                                         |                                     |                                                            |
 | [`useFetch`](#useFetchInitialUrl-initialOptions-onMount) | initialUrl, initialOptions, onMount | { loading, data, error, fetch, setUrl, setOptions }        |
 | [`useOnlineStatus`](#useonlinestatus)                    |                                     |                                                            |

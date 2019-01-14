@@ -1,6 +1,7 @@
 export const isNil = x => x == null
 
-export const cancelablePromise = (promise) => {
+
+export const cancelablePromise = /* istanbul ignore next */ (promise) => {
   let hasCanceled = false
 
   const wrappedPromise = new Promise((resolve, reject) => {
@@ -16,16 +17,18 @@ export const cancelablePromise = (promise) => {
   }
 }
 
-const hasOwn = Object.prototype.hasOwnProperty
 
-const is = (x, y) => {
+const hasOwn = /* istanbul ignore next */ Object.prototype.hasOwnProperty
+
+const is = /* istanbul ignore next */ (x, y) => {
   if (x === y) {
     return x !== 0 || y !== 0 || 1 / x === 1 / y
   }
   return x !== x && y !== y // eslint-disable-line
 }
 
-export const shallowEqual = (objA, objB) => {
+
+export const shallowEqual = /* istanbul ignore next */ (objA, objB) => {
   if (is(objA, objB)) return true
 
   if (typeof objA !== 'object' || objA === null
