@@ -1,4 +1,4 @@
-# React Hooks Lib &middot; ![](https://img.shields.io/github/license/beizhedenglong/react-hooks-lib.svg) [![Build Status](https://travis-ci.org/beizhedenglong/react-hooks-lib.svg?branch=master)](https://travis-ci.org/beizhedenglong/react-hooks-lib)
+# React Hooks Lib &middot; ![](https://img.shields.io/github/license/beizhedenglong/react-hooks-lib.svg) [![Build Status](https://travis-ci.org/beizhedenglong/react-hooks-lib.svg?branch=master)](https://travis-ci.org/beizhedenglong/react-hooks-lib) [![Coverage Status](https://coveralls.io/repos/github/beizhedenglong/react-hooks-lib/badge.svg?branch=master)](https://coveralls.io/github/beizhedenglong/react-hooks-lib?branch=master)
 
 A set of reusable [React Hooks](https://reactjs.org/docs/hooks-reference.html#usestate).
 
