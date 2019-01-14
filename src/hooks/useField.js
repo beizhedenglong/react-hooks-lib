@@ -6,7 +6,7 @@ const useField = (initial) => {
   return {
     value,
     set,
-    reset: () => set(value),
+    reset: () => set(initial),
     bind: {
       value,
       onChange: e => set(e.target.value),

@@ -6,10 +6,8 @@ const useCounter = (initial = 0) => {
   return {
     count,
     set,
-    inc: () => set(add(1)),
-    dec: () => set(add(-1)),
-    incBy: value => set(add(value)),
-    decBy: value => set(add(-value)),
+    inc: (number = 1) => set(add(number)),
+    dec: (number = 1) => set(add(-number)),
     reset: () => set(initial),
   }
 }

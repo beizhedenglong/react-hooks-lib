@@ -22,10 +22,10 @@ Visit [here](https://github.com/beizhedenglong/react-hooks-lib/blob/master/examp
 | [`createContextState`](#createContextStateInitial)                                     | initial                             | { ContextProvider, ContextConsumer,  set, useContextState} |
 | [`createGlobalState`](#createGlobalStateInitial)                                      | initial                             | { GlobalProvider, GlobalConsumer, set, useGlobalState}     |
 | [`useMergeState`](#usemergestateinitial)                 | initial                             | { state, set }                                             |
-| [`useCounter`](#useCounterInitial)                       | initial                             | { count, set, reset, inc, dec, incBy, decBy }              |
+| [`useCounter`](#useCounterInitial)                       | initial                             | { count, set, reset, inc, dec }              |
 | [`useToggle`](#useToggleInitial)                         | initial                             | { on, set, reset, toggle }                                 |
 | [`useList`](#useListInitial)                             | initial                             | { list, set, reset, push, sort, filter }                   |
-| [`useMap`](#useMapInitial)                               | initial                             | { values, set, reset, clear, get, has, delete }            |
+| [`useMap`](#useMapInitial)                               | initial                             | { values, set, reset, clear, get, has, del }            |
 | <h6>Network</h6>                                         |                                     |                                                            |
 | [`useFetch`](#useFetchInitialUrl-initialOptions-onMount) | initialUrl, initialOptions, onMount | { loading, data, error, fetch, setUrl, setOptions }        |
 | [`useOnlineStatus`](#useonlinestatus)                    |                                     |                                                            |
@@ -128,8 +128,8 @@ const Counter = () => {
   return (
     <div>
       {count}
-      <button onClick={inc}>+1</button>
-      <button onClick={dec}>-1</button>
+      <button onClick={() => inc(1)}>+1</button>
+      <button onClick={() => dec(1)}>-1</button>
       <button onClick={reset}>reset</button>
     </div>
   )

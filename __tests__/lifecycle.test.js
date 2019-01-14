@@ -29,7 +29,7 @@ const LifecycleExample = () => {
           : 'count > 3, component did unmount'
       }
 
-      <button onClick={inc}>+1</button>
+      <button onClick={() => inc(1)}>+1</button>
     </div>
   )
 }

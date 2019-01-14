@@ -40,8 +40,8 @@ const Counter = () => {
     <div>
       <h3>useCounter</h3>
       {String(count)}
-      <button onClick={inc}>+1</button>
-      <button onClick={dec}>-1</button>
+      <button onClick={() => inc(1)}>+1</button>
+      <button onClick={() => dec(1)}>-1</button>
       <button onClick={reset}>reset</button>
     </div>
   )

@@ -5,10 +5,7 @@ const useOnlineStatus = () => {
   const [online, set] = useState(navigator.onLine)
 
   const handleOnline = () => set(true)
-
-
   const handleOffline = () => set(false)
-
 
   useEffect(() => {
     window.addEventListener('online', handleOnline)
@@ -17,7 +14,7 @@ const useOnlineStatus = () => {
       window.removeEventListener('online', handleOnline)
       window.removeEventListener('offline', handleOffline)
     }
-  })
+  }, [])
   return {
     online,
   }
