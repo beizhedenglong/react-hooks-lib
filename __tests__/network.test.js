@@ -33,17 +33,19 @@ test('useFetch', async () => {
     json: () => ({ name: 'Victor' }),
   })))
   const Fetch = () => {
-    const { data, loading, setUrl } = useFetch('/test')
+    const {
+      data, loading, setUrl, fetch,
+    } = useFetch('/test')
     return (
       <div>
         <button
-          data-testid="button"
           onClick={() => {
             setUrl('/test2')
           }}
         >
           search
         </button>
+        <button onClick={() => fetch()}>fetch</button>
         <span data-testid="loading">{String(loading)}</span>
         <span data-testid="data">{JSON.stringify(data)}</span>
       </div>
@@ -63,4 +65,10 @@ test('useFetch', async () => {
   await wait()
   expect(getByTestId('loading').textContent).toBe('false')
   expect(getByTestId('data').textContent).toBe(JSON.stringify({ name: 'Victor' }))
+  fireEvent.click(getByText(/fetch/))
+  jest.runAllTimers()
+  expect(getByTestId('loading').textContent).toBe('true')
+  expect(window.fetch).toBeCalledTimes(3)
+  await wait()
+  expect(getByTestId('loading').textContent).toBe('false')
 })
