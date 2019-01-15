@@ -93,7 +93,6 @@ const MyComponent = () => {
 
 ### `createGlobalState(initial?)`
 
-
 ### `useMergeState(initial?)`
 #### Arguments
 - `initial?: Object`: Initial state object, default is `{}`.
