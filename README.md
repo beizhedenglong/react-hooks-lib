@@ -84,7 +84,7 @@ const MyComponent = () => {
   return (
     <div>
       {`count: ${count}`}
-      <button onClick={inc}>+1</button>
+      <button onClick={() => inc(1)}>+1</button>
     </div>
   )
 }
