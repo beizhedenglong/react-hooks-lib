@@ -50,6 +50,7 @@ const useFetch = (initialUrl, initialOptions = {}, onMount = true) => {
   return {
     setUrl: updateConfig('url'),
     setOptions: updateConfig('options'),
+    setData,
     loading,
     data,
     error,
