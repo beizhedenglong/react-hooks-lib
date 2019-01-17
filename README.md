@@ -27,7 +27,7 @@ Visit [here](https://github.com/beizhedenglong/react-hooks-lib/blob/master/examp
 | [`useList`](#useListInitial)                             | initial                             | { list, set, reset, push, sort, filter }                     |
 | [`useMap`](#useMapInitial)                               | initial                             | { values, set, reset, clear, get, has, del }                 |
 | <h6>Network</h6>                                         |                                     |                                                              |
-| [`useFetch`](#useFetchInitialUrl-initialOptions-onMount) | initialUrl, initialOptions, onMount | { loading, data, error, fetch, setUrl, setOptions, setData } |
+| [`useFetch`](#useFetchInitialUrl-initialOptions-onMount) | initialUrl, initialOptions, config | { loading, data, error, fetch, setUrl, setOptions, setData } |
 | [`useOnlineStatus`](#useonlinestatus)                    |                                     |                                                              |
 | <h6>Feedback</h6>                                        |                                     |                                                              |
 | [`useHover`](#useHover)                                  | -                                   | { hovered, bind }                                            |

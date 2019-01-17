@@ -52,8 +52,9 @@ test('useFetch', async () => {
     )
   }
   const { getByTestId, getByText } = render(<Fetch />)
-  expect(getByTestId('loading').textContent).toBe('true')
+  expect(getByTestId('loading').textContent).toBe('false')
   jest.runAllTimers()
+  expect(getByTestId('loading').textContent).toBe('true')
   expect(window.fetch).toBeCalledTimes(1)
   await wait()
   expect(getByTestId('loading').textContent).toBe('false')

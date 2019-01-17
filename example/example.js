@@ -164,7 +164,7 @@ const PostFetch = () => {
   const { data, loading, setOptions } = useFetch(
     'https://jsonplaceholder.typicode.com/posts',
     { method: 'POST' },
-    false,
+    { onMount: false },
   )
   return (
     <div>

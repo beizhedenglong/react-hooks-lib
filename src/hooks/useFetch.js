@@ -2,7 +2,11 @@ import { useState, useEffect, useRef } from 'react'
 import { cancelablePromise, shallowEqual } from '../utils'
 
 // Inspired by https://github.com/tkh44/holen
-const useFetch = (initialUrl, initialOptions = {}, onMount = true) => {
+const useFetch = (
+  initialUrl,
+  initialOptions = {},
+  { onMount = true, onResponse = () => {} } = {},
+) => {
   const [config, setConfig] = useState({
     url: initialUrl,
     options: initialOptions,
@@ -25,10 +29,12 @@ const useFetch = (initialUrl, initialOptions = {}, onMount = true) => {
       .then((newData) => {
         setData(newData)
         setLoading(false)
+        onResponse(error, newData)
         return newData
       }).catch((e) => {
         setError(e)
         setLoading(false)
+        onResponse(e, data)
         return e
       })
 
