@@ -7,7 +7,7 @@ const useFetch = (initialUrl, initialOptions = {}, onMount = true) => {
     url: initialUrl,
     options: initialOptions,
   })
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const [data, setData] = useState(null)
   const [error, setError] = useState(null)
   const canFetchRef = useRef(onMount)
