@@ -12,30 +12,30 @@ Visit [here](https://github.com/beizhedenglong/react-hooks-lib/blob/master/examp
 
 ## Hooks
 
-| Name                                                     | Arguments                           | Returns                                                    |
-| -------------------------------------------------------- | ----------------------------------- | ---------------------------------------------------------- |
-| <h6>Lifecycles</h6>                                      |                                     |                                                            |
-| [`useDidMount`](#usedidmountf)                           | f                                   | -                                                          |
-| [`useWillUnmount`](#usewillunmountf)                     | f                                   | -                                                          |
-| [`useDidUpdate`](#usedidupdatef-options)                 | f, conditions                       | -                                                          |
-| <h6>State</h6>                                           |                                     |                                                            |
-| [`createContextState`](#createContextStateInitial)       | initial                             | { ContextProvider, ContextConsumer,  set, useContextState} |
-| [`createGlobalState`](#createGlobalStateInitial)         | initial                             | { GlobalProvider, GlobalConsumer, set, useGlobalState}     |
-| [`useMergeState`](#usemergestateinitial)                 | initial                             | { state, set }                                             |
-| [`useCounter`](#useCounterInitial)                       | initial                             | { count, set, reset, inc, dec }                            |
-| [`useToggle`](#useToggleInitial)                         | initial                             | { on, set, reset, toggle }                                 |
-| [`useList`](#useListInitial)                             | initial                             | { list, set, reset, push, sort, filter }                   |
-| [`useMap`](#useMapInitial)                               | initial                             | { values, set, reset, clear, get, has, del }               |
-| <h6>Network</h6>                                         |                                     |                                                            |
-| [`useFetch`](#useFetchInitialUrl-initialOptions-onMount) | initialUrl, initialOptions, onMount | { loading, data, error, fetch, setUrl, setOptions }        |
-| [`useOnlineStatus`](#useonlinestatus)                    |                                     |                                                            |
-| <h6>Feedback</h6>                                        |                                     |                                                            |
-| [`useHover`](#useHover)                                  | -                                   | { hovered, bind }                                          |
-| [`useActive`](#useActive)                                | -                                   | { active, bind }                                           |
-| [`useFocus`](#useFocus)                                  | -                                   | { focused, bind }                                          |
-| [`useTouch`](#useTouch)                                  | -                                   | { touched, bind }                                          |
-| <h6>Data Entry</h6>                                      |                                     |                                                            |
-| [`useField`](#useFieldInitial)                           | initial                             | { value, set, reset, bind }                                |
+| Name                                                     | Arguments                           | Returns                                                      |
+| -------------------------------------------------------- | ----------------------------------- | ------------------------------------------------------------ |
+| <h6>Lifecycles</h6>                                      |                                     |                                                              |
+| [`useDidMount`](#usedidmountf)                           | f                                   | -                                                            |
+| [`useWillUnmount`](#usewillunmountf)                     | f                                   | -                                                            |
+| [`useDidUpdate`](#usedidupdatef-options)                 | f, conditions                       | -                                                            |
+| <h6>State</h6>                                           |                                     |                                                              |
+| [`createContextState`](#createContextStateInitial)       | initial                             | { ContextProvider, ContextConsumer,  set, useContextState }  |
+| [`createGlobalState`](#createGlobalStateInitial)         | initial                             | { GlobalProvider, GlobalConsumer, set, useGlobalState }      |
+| [`useMergeState`](#usemergestateinitial)                 | initial                             | { state, set }                                               |
+| [`useCounter`](#useCounterInitial)                       | initial                             | { count, set, reset, inc, dec }                              |
+| [`useToggle`](#useToggleInitial)                         | initial                             | { on, set, reset, toggle }                                   |
+| [`useList`](#useListInitial)                             | initial                             | { list, set, reset, push, sort, filter }                     |
+| [`useMap`](#useMapInitial)                               | initial                             | { values, set, reset, clear, get, has, del }                 |
+| <h6>Network</h6>                                         |                                     |                                                              |
+| [`useFetch`](#useFetchInitialUrl-initialOptions-onMount) | initialUrl, initialOptions, onMount | { loading, data, error, fetch, setUrl, setOptions, setData } |
+| [`useOnlineStatus`](#useonlinestatus)                    |                                     |                                                              |
+| <h6>Feedback</h6>                                        |                                     |                                                              |
+| [`useHover`](#useHover)                                  | -                                   | { hovered, bind }                                            |
+| [`useActive`](#useActive)                                | -                                   | { active, bind }                                             |
+| [`useFocus`](#useFocus)                                  | -                                   | { focused, bind }                                            |
+| [`useTouch`](#useTouch)                                  | -                                   | { touched, bind }                                            |
+| <h6>Data Entry</h6>                                      |                                     |                                                              |
+| [`useField`](#useFieldInitial)                           | initial                             | { value, set, reset, bind }                                  |
 
 
 ## API
