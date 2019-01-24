@@ -5,7 +5,7 @@ import { cancelablePromise, shallowEqual } from '../utils'
 const useFetch = (
   initialUrl,
   initialOptions = {},
-  { onMount = true, onResponse = () => {} } = {},
+  { onMount = true, onResponse = () => { } } = {},
 ) => {
   const [config, setConfig] = useState({
     url: initialUrl,
@@ -60,10 +60,10 @@ const useFetch = (
     loading,
     data,
     error,
-    fetch: (url, options) => setConfig(prev => ({
-      url: url || prev.url,
+    fetch: (urlUpdater, optionsUpdater) => setConfig(prev => ({
+      url: typeof urlUpdater === 'function' ? urlUpdater(prev.url) : (urlUpdater || prev.url),
       // change reference of options， so that we can re-fetch data when call fetch
-      options: { ...(options || prev.options) },
+      options: typeof optionsUpdater === 'function' ? optionsUpdater(prev.options) : { ...(optionsUpdater || prev.options) },
     })),
   }
 }
