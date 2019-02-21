@@ -1,7 +1,7 @@
 import 'react-testing-library/cleanup-after-each'
 import React, { useState } from 'react'
 import {
-  render, fireEvent,
+  render, fireEvent, act,
 } from 'react-testing-library'
 import {
   useMergeState,
@@ -48,9 +48,9 @@ test('createGlobalState', () => {
   const { getByTestId } = render(<App />)
   jest.runAllTimers()
   expect(getState()).toEqual({})
-  set({ name: 'Victor' })
+  act(() => set({ name: 'Victor' }))
   expect(getState()).toEqual({ name: 'Victor' })
-  set(prev => ({ ...prev, age: 21 }))
+  act(() => set(prev => ({ ...prev, age: 21 })))
   expect(getState()).toEqual({ name: 'Victor', age: 21 })
   expect(getByTestId('state-value').textContent).toEqual(JSON.stringify({ name: 'Victor', age: 21 }))
 })
@@ -74,9 +74,9 @@ test('createContextState', () => {
   const { getByTestId, getByText } = render(<App />)
   jest.runAllTimers()
   expect(getState()).toEqual({})
-  set({ name: 'Victor' })
+  act(() => set({ name: 'Victor' }))
   expect(getState()).toEqual({ name: 'Victor' })
-  set(prev => ({ ...prev, age: 21 }))
+  act(() => set(prev => ({ ...prev, age: 21 })))
   expect(getState()).toEqual({ name: 'Victor', age: 21 })
   expect(getByTestId('state-value').textContent).toEqual(JSON.stringify({ name: 'Victor', age: 21 }))
   fireEvent.click(getByText('age+1'))

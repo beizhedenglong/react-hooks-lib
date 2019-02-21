@@ -1,7 +1,7 @@
 import 'react-testing-library/cleanup-after-each'
 import React from 'react'
 import {
-  render, wait, fireEvent,
+  render, wait, fireEvent, act,
 } from 'react-testing-library'
 import {
   useOnlineStatus, useFetch,
@@ -21,12 +21,13 @@ test('useOnlineStatus', () => {
   const { container } = render(<OnlineStatus />)
   jest.runAllTimers()
   expect(container.firstChild.textContent).toBe('false')
-  map.online()
+  act(() => map.online())
   expect(container.firstChild.textContent).toBe('true')
-  map.offline()
+  act(() => map.offline())
   expect(container.firstChild.textContent).toBe('false')
 })
 
+// https://github.com/facebook/react/issues/14769#issuecomment-462528230
 test('useFetch', async () => {
   jest.useFakeTimers()
   window.fetch = jest.fn(() => new Promise(resolve => resolve({
@@ -52,22 +53,21 @@ test('useFetch', async () => {
     )
   }
   const { getByTestId, getByText } = render(<Fetch />)
-  expect(getByTestId('loading').textContent).toBe('false')
-  jest.runAllTimers()
+  act(() => jest.runAllTimers())
   expect(getByTestId('loading').textContent).toBe('true')
   expect(window.fetch).toBeCalledTimes(1)
   await wait()
   expect(getByTestId('loading').textContent).toBe('false')
   expect(getByTestId('data').textContent).toBe(JSON.stringify({ name: 'Victor' }))
   fireEvent.click(getByText(/search/))
-  jest.runAllTimers()
+  act(() => jest.runAllTimers())
   expect(getByTestId('loading').textContent).toBe('true')
   expect(window.fetch).toBeCalledTimes(2)
   await wait()
   expect(getByTestId('loading').textContent).toBe('false')
   expect(getByTestId('data').textContent).toBe(JSON.stringify({ name: 'Victor' }))
   fireEvent.click(getByText(/fetch/))
-  jest.runAllTimers()
+  act(() => jest.runAllTimers())
   expect(getByTestId('loading').textContent).toBe('true')
   expect(window.fetch).toBeCalledTimes(3)
   await wait()
