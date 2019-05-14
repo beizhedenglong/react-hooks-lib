@@ -4,8 +4,33 @@ import {
   useToggle, useCounter, useHover, useActive, useFocus,
   useList, useMap, useField, useFetch, useTouch, useMergeState,
   useOnlineStatus, useDidMount, useWillUnmount, useDidUpdate,
-  createContextState,
+  createContextState, useUndo,
 } from '../src/index'
+
+const UndoCounter = () => {
+  const {
+    past, present, future, set, undo, redo,
+  } = useUndo(0)
+  return (
+    <div>
+      <h3>useUndo</h3>
+      {`counter: ${present}`}
+      <button onClick={() => set(prev => prev + 1)}>+1</button>
+      <button
+        onClick={undo}
+        disabled={past.length === 0}
+      >
+        undo
+      </button>
+      <button
+        onClick={redo}
+        disabled={future.length === 0}
+      >
+        redo
+      </button>
+    </div>
+  )
+}
 
 const MergeState = () => {
   const { state, set } = useMergeState({ name: 'Victor', age: 1 })
@@ -245,6 +270,8 @@ const ContextState = () => {
 
 ReactDOM.render(
   <div>
+    <UndoCounter />
+    <br />
     <ContextProvider>
       <ContextState />
     </ContextProvider>
@@ -270,8 +297,8 @@ ReactDOM.render(
     <hr />
     <Select />
     <hr />
-    <Fetch />
-    <PostFetch />
+    {/* <Fetch />
+    <PostFetch /> */}
     <hr />
     <OnlineStatus />
     <hr />
