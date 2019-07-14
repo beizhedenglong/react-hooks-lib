@@ -30,7 +30,6 @@ storiesOf(section('useFetch'), module)
        >
          search
        </button>
-       {console.log(loading, data)}
        {
          loading
            ? <div>Loading...</div>

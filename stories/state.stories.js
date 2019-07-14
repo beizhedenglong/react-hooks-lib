@@ -56,7 +56,6 @@ storiesOf(section('useMergeState'), module)
 //       <div>
 //         counter:
 //         {state.counter}
-//         {console.log(state.counter)}
 //         <button onClick={() => set(
 //           prev => ({ counter: prev.counter + 1 })
 //         )}>+1</button>
