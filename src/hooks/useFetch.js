@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { cancelablePromise, shallowEqual } from '../utils'
+import useMergeState from './useMergeState'
 
 // Inspired by https://github.com/tkh44/holen
 const useFetch = (
@@ -11,9 +12,11 @@ const useFetch = (
     url: initialUrl,
     options: initialOptions,
   })
-  const [loading, setLoading] = useState(false)
-  const [data, setData] = useState(null)
-  const [error, setError] = useState(null)
+  const { state, set } = useMergeState({
+    loading: true,
+    data: null,
+    error: null,
+  })
   const canFetchRef = useRef(onMount)
 
   useEffect(() => {
@@ -23,18 +26,26 @@ const useFetch = (
       return
     }
     const cancelable = cancelablePromise(fetch(url, options))
-    setLoading(true)
+    set({ loading: true })
     cancelable.promise
       .then(res => res.json())
       .then((newData) => {
-        setData(newData)
-        setLoading(false)
-        onResponse(error, newData)
+        set(({ error }) => {
+          onResponse(error, newData)
+          return {
+            data: newData,
+            loading: false,
+          }
+        })
         return newData
       }).catch((e) => {
-        setError(e)
-        setLoading(false)
-        onResponse(e, data)
+        set(({ data }) => {
+          onResponse(e, data)
+          return {
+            error: e,
+            loading: false,
+          }
+        })
         return e
       })
 
@@ -56,10 +67,14 @@ const useFetch = (
   return {
     setUrl: updateConfig('url'),
     setOptions: updateConfig('options'),
-    setData,
-    loading,
-    data,
-    error,
+    setData: updater => set(
+      ({ data }) => (typeof updater === 'function'
+        ? { data: updater(data) }
+        : { data: updater }),
+    ),
+    loading: state.loading,
+    data: state.data,
+    error: state.error,
     fetch: (urlUpdater, optionsUpdater) => setConfig(prev => ({
       url: typeof urlUpdater === 'function' ? urlUpdater(prev.url) : (urlUpdater || prev.url),
       // change reference of options， so that we can re-fetch data when call fetch
