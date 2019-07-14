@@ -8,7 +8,7 @@ A set of reusable [React Hooks](https://reactjs.org/docs/hooks-reference.html#us
 `npm i react-hooks-lib --save`
 
 ## Examples
-Visit [here](https://github.com/beizhedenglong/react-hooks-lib/blob/master/example/example.js)
+Visit [storybook](https://beizhedenglong.github.io/react-hooks-lib)
 
 ## Hooks
 
