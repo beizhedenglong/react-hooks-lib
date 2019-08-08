@@ -6,3 +6,5 @@ exampleDist
 yarn-error.log
 .vscode
 coverage
+.DS_store
+examples
