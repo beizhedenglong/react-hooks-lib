@@ -2,10 +2,10 @@ import { useEffect, useRef } from 'react'
 
 
 const useDidUpdate = (f, conditions) => {
-  const didMoutRef = useRef(false)
+  const didMountRef = useRef(false)
   useEffect(() => {
-    if (!didMoutRef.current) {
-      didMoutRef.current = true
+    if (!didMountRef.current) {
+      didMountRef.current = true
       return
     }
 

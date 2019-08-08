@@ -46,6 +46,25 @@ storiesOf(section('useMergeState'), module)
   return <MergeState />
 `)
 
+storiesOf(section('useStateCallback'), module)
+  .addLiveSource('demo', `
+ const StateCallback = () => {
+   const [number1, set1] = React.useState(0)
+   const { state: number2, set: set2 } = useStateCallback(0, () => {
+     console.log(number2)
+     set1(prev => prev + 1)
+   })
+   return (
+     <div>
+       <span>{\`number1: $\{number1}, number2: $\{number2}\`}</span>
+       <br />
+       <button onClick={() => set2(prev => prev + 1)}>+1</button>
+     </div>
+   )
+ }
+  return <StateCallback />
+`)
+
 // storiesOf(section('createContextState'), module)
 //   .addLiveSource('demo', `
 //   const { ContextProvider, useContextState } = createContextState({ counter: 1 })
