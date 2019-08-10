@@ -1,6 +1,6 @@
 {
   "name": "react-hooks-lib",
-  "version": "0.0.20",
+  "version": "0.0.0-development",
   "main": "dist/react-hooks-lib.js",
   "umd:main": "dist/react-hooks-lib.umd.js",
   "module": "dist/react-hooks-lib.m.js",
@@ -14,7 +14,18 @@
     "report-coverage": "cat ./coverage/lcov.info | coveralls",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "deploy-storybook": "storybook-to-ghpages"
+    "deploy-storybook": "storybook-to-ghpages",
+    "semantic-release": "semantic-release"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn test"
+    }
   },
   "keywords": [
     "react-hooks",
@@ -42,6 +53,7 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.6",
+    "commitizen": "^4.0.3",
     "coveralls": "^3.0.2",
     "eslint": "^5.7.0",
     "eslint-config-airbnb": "^17.1.0",
@@ -49,6 +61,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-react-hooks": "^1.6.1",
+    "husky": "^3.0.3",
     "jest": "^23.6.0",
     "jest-dom": "^3.0.0",
     "microbundle": "^0.11.0",
@@ -58,10 +71,15 @@
     "react-test-renderer": "^16.8.6",
     "react-testing-library": "^5.9.0",
     "regenerator-runtime": "^0.13.1",
+    "semantic-release": "^15.13.19",
     "storybook-addon-react-live-edit": "^2.0.4"
   },
   "peerDependencies": {
     "react": "^16.8.0"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/beizhedenglong/react-hooks-lib.git"
+  }
 }
