@@ -14,6 +14,7 @@ install: yarn
 script: yarn test && yarn build
 after_success:
   - yarn report-coverage
+  - yarn deploy-storybook
 jobs:
   include:
     # Define the release stage that runs semantic-release
