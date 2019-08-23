@@ -17,4 +17,4 @@ after_success:
 deploy:
   provider: script
   skip_cleanup: true
-  script: yarn semantic-release & yarn deploy-storybook
+  script: yarn semantic-release & yarn deploy-storybook -- --ci
