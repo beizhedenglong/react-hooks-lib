@@ -7,7 +7,6 @@
   "source": "src/index.js",
   "license": "MIT",
   "scripts": {
-    "example": "parcel ./example/index.html --out-dir exampleDist",
     "build": "microbundle -o dist/ --sourcemap false --no-compress",
     "dev": "microbundle watch -o dist/ --sourcemap false --no-compress",
     "test": "jest --coverage --config=jest.config.js",
