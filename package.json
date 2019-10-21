@@ -11,7 +11,7 @@
     "dev": "microbundle watch -o dist/ --sourcemap false --no-compress",
     "test": "jest --coverage --config=jest.config.js",
     "report-coverage": "cat ./coverage/lcov.info | coveralls",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 --ci",
     "build-storybook": "build-storybook",
     "deploy-storybook": "storybook-to-ghpages",
     "semantic-release": "semantic-release"
@@ -23,7 +23,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn test"
+      "pre-push": "yarn test",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
   },
   "keywords": [
@@ -78,7 +79,10 @@
   "peerDependencies": {
     "react": "^16.8.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "lodash.isequal": "^4.5.0",
+    "shallowequal": "^1.1.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/beizhedenglong/react-hooks-lib.git"

@@ -22,12 +22,15 @@ Visit [storybook](https://beizhedenglong.github.io/react-hooks-lib)
 | [`createContextState`](#createContextStateInitial)       | initial                            | { ContextProvider, ContextConsumer,  set, useContextState }  |
 | [`createGlobalState`](#createGlobalStateInitial)         | initial                            | { GlobalProvider, GlobalConsumer, set, useGlobalState }      |
 | [`useMergeState`](#usemergestateinitial)                 | initial                            | { state, set }                                               |
-| [`useStateCallback`](#useStateCallbackInitial-f)                 | initial, f                            | { state, set }                                               |
+| [`useStateCallback`](#useStateCallbackInitial-f)         | initial, f                         | { state, set }                                               |
 | [`useUndo`](#useUndoInitial)                             | initial                            | { past, present, future, set, undo, redo }                   |
 | [`useCounter`](#useCounterInitial)                       | initial                            | { count, set, reset, inc, dec }                              |
 | [`useToggle`](#useToggleInitial)                         | initial                            | { on, set, reset, toggle }                                   |
 | [`useList`](#useListInitial)                             | initial                            | { list, set, reset, push, sort, filter }                     |
 | [`useMap`](#useMapInitial)                               | initial                            | { values, set, reset, clear, get, has, del }                 |
+| <h6>Effect</h6>                                      |                                    |                                                              |
+| `useShallowEqualEffect`                                  | f, deps                            | -                                                            |
+| `useDeepEqualEffect`                                     | f, deps                            | -                                                            |
 | <h6>Network</h6>                                         |                                    |                                                              |
 | [`useFetch`](#useFetchInitialUrl-initialOptions-onMount) | initialUrl, initialOptions, config | { loading, data, error, fetch, setUrl, setOptions, setData } |
 | [`useOnlineStatus`](#useonlinestatus)                    |                                    |                                                              |
