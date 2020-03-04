@@ -7,8 +7,8 @@
   "source": "src/index.js",
   "license": "MIT",
   "scripts": {
-    "build": "microbundle -o dist/ --sourcemap false --no-compress",
-    "dev": "microbundle watch -o dist/ --sourcemap false --no-compress",
+    "build": "microbundle -o dist/ --sourcemap false --no-compress --jsx React.createElement",
+    "dev": "microbundle watch -o dist/ --sourcemap false --no-compress --jsx React.createElement",
     "test": "jest --coverage --config=jest.config.js",
     "report-coverage": "cat ./coverage/lcov.info | coveralls",
     "storybook": "start-storybook -p 6006 --ci",
