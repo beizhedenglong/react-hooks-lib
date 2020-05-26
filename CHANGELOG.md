@@ -1,3 +1,10 @@
+# [0.2.0](https://github.com/beizhedenglong/react-hooks-lib/compare/v0.1.1...v0.2.0) (2020-05-26)
+
+
+### Features
+
+* add useSelector for createGlobalState ([a8478f7](https://github.com/beizhedenglong/react-hooks-lib/commit/a8478f7a8a80526f9be3abb47c2495971707d0f6))
+
 ## [0.1.1](https://github.com/beizhedenglong/react-hooks-lib/compare/v0.1.0...v0.1.1) (2020-03-04)
 
 
