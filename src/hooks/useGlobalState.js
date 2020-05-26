@@ -1,52 +1,77 @@
 import React, {
   createContext, useState, useEffect, useContext,
 } from 'react'
+import { identity } from '../utils'
 
 const createGlobalState = (initial = {}) => {
   let state = initial
   let listeners = []
+
+  const getState = () => state
+  const subscribe = (f = identity) => {
+    listeners.push(f)
+    return () => {
+      listeners = listeners.filter(l => l !== f)
+    }
+  }
   const set = (updater) => {
     if (typeof updater === 'function') {
       state = updater(state)
     } else {
       state = updater
     }
-    listeners.forEach(f => f())
+    listeners.forEach(f => f(state))
   }
-  const context = createContext(state)
+  const initialStore = {
+    getState,
+    subscribe,
+    set,
+  }
+  const context = createContext(initialStore)
   const { Provider, Consumer } = context
-  const GlobalProvider = ({ children }) => {
-    const [value, setValue] = useState(state)
+  const GlobalProvider = ({ children }) => (
+    <Provider value={initialStore}>
+      {children}
+    </Provider>
+  )
+  const useStore = () => {
+    const store = useContext(context)
+    return store
+  }
+
+  const useSelector = (selector = identity) => {
+    const initialValue = selector(state)
+    const [value, setValue] = useState(initialValue)
     useEffect(() => {
-      const listener = () => {
-        if (state !== value) {
-          setValue(state)
+      const l = (newState) => {
+        const newValue = selector(newState)
+        if (newValue !== value) {
+          setValue(newValue)
         }
       }
-      listeners.push(listener)
-      return () => {
-        listeners = listeners.filter(l => l !== listener)
-      }
+      const unsubscribe = subscribe(l)
+      return unsubscribe
     }, [])
-    return (
-      <Provider value={value}>
-        {children}
-      </Provider>
-    )
+    return value
   }
+  const useSet = () => set
+
   const useGlobalState = () => {
-    const contextState = useContext(context)
+    const storeState = useSelector()
     return {
       set,
-      state: contextState,
+      state: storeState,
     }
   }
   return {
     GlobalProvider,
     GlobalConsumer: Consumer,
+    useStore,
     useGlobalState,
     set,
-    getState: () => state,
+    getState,
+    useSelector,
+    useSet,
   }
 }
 
@@ -58,6 +83,9 @@ export const createContextState = (initial = {}) => {
     set: globalState.set,
     useContextState: globalState.useGlobalState,
     getState: globalState.getState,
+    useStore: globalState.useStore,
+    useSelector: globalState.useSelector,
+    useSet: globalState.useSet,
   }
 }
 export default createGlobalState
