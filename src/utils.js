@@ -50,3 +50,6 @@ export const shallowEqual = /* istanbul ignore next */ (objA, objB) => {
 
   return true
 }
+
+
+export const identity = x => x

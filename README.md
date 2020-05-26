@@ -19,8 +19,8 @@ Visit [storybook](https://beizhedenglong.github.io/react-hooks-lib)
 | [`useWillUnmount`](#usewillunmountf)                     | f                                  | -                                                            |
 | [`useDidUpdate`](#usedidupdatef-options)                 | f, conditions                      | -                                                            |
 | <h6>State</h6>                                           |                                    |                                                              |
-| [`createContextState`](#createContextStateInitial)       | initial                            | { ContextProvider, ContextConsumer,  set, useContextState }  |
-| [`createGlobalState`](#createGlobalStateInitial)         | initial                            | { GlobalProvider, GlobalConsumer, set, useGlobalState }      |
+| [`createContextState`](#createContextStateInitial)       | initial                            | { ContextProvider, ContextConsumer,  set, useSelector, useSet }  |
+| [`createGlobalState`](#createGlobalStateInitial)         | initial                            | { GlobalProvider, GlobalConsumer, set, useSelector, useSet }      |
 | [`useMergeState`](#usemergestateinitial)                 | initial                            | { state, set }                                               |
 | [`useStateCallback`](#useStateCallbackInitial-f)         | initial, f                         | { state, set }                                               |
 | [`useUndo`](#useUndoInitial)                             | initial                            | { past, present, future, set, undo, redo }                   |
