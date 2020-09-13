@@ -1,3 +1,10 @@
+# [0.3.0](https://github.com/beizhedenglong/react-hooks-lib/compare/v0.2.0...v0.3.0) (2020-09-13)
+
+
+### Features
+
+* add useAsync hook ([20118f8](https://github.com/beizhedenglong/react-hooks-lib/commit/20118f8c4d7ee3fa21f46cdc579402102c938c5c))
+
 # [0.2.0](https://github.com/beizhedenglong/react-hooks-lib/compare/v0.1.1...v0.2.0) (2020-05-26)
 
 
