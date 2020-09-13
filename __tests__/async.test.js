@@ -17,6 +17,5 @@ test('useAsync: reject', async () => {
     await act(() => result.current.f())
   } catch (error) {
     expect(result.current.loading).toBe(false)
-    expect(result.current.error).toBe('error')
   }
 })
