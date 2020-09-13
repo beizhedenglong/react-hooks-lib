@@ -35,3 +35,5 @@ export { default as useUndo } from './hooks/useUndo'
 export { default as useStateCallback } from './hooks/useStateCallback'
 
 export { useShallowEqualEffect, useDeepEqualEffect } from './hooks/useEqualEffect'
+
+export { default as useAsync } from './hooks/useAsync'

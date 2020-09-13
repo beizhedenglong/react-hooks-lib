@@ -41,6 +41,8 @@ Visit [storybook](https://beizhedenglong.github.io/react-hooks-lib)
 | [`useTouch`](#useTouch)                                  | -                                  | { touched, bind }                                            |
 | <h6>Data Entry</h6>                                      |                                    |                                                              |
 | [`useField`](#useFieldInitial)                           | initial                            | { value, set, reset, bind }                                  |
+| <h6>Async</h6>                                         |                                    |                                                              |
+| `useAsync`                                  | f                                 | { f, loading }                                            |
 
 
 ## API
