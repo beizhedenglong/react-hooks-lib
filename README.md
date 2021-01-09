@@ -22,6 +22,7 @@ Visit [storybook](https://beizhedenglong.github.io/react-hooks-lib)
 | [`createContextState`](#createContextStateInitial)       | initial                            | { ContextProvider, ContextConsumer,  set, useSelector, useSet }  |
 | [`createGlobalState`](#createGlobalStateInitial)         | initial                            | { GlobalProvider, GlobalConsumer, set, useSelector, useSet }      |
 | [`useMergeState`](#usemergestateinitial)                 | initial                            | { state, set }                                               |
+| [`useNestedState`](#usenestedstateinitial)                 | initial                            | { state, get, set }                                               |
 | [`useStateCallback`](#useStateCallbackInitial-f)         | initial, f                         | { state, set }                                               |
 | [`useUndo`](#useUndoInitial)                             | initial                            | { past, present, future, set, undo, redo }                   |
 | [`useCounter`](#useCounterInitial)                       | initial                            | { count, set, reset, inc, dec }                              |
@@ -122,6 +123,13 @@ const MergeState = () => {
   )
 }
 ```
+### `useNestedState`
+#### Arguments
+- `initial?`: Initial state, default is `undefined`.
+#### Returns
+- `state`: Current state.
+- `get(pathString, defaultValue)`: Get value form state at a specific `pathString`. eg: `get("a.b.c")`/`get("" | undefined)`, if `pathString` is empty,it will return the state object.
+- `set: (pathString, newValue | prevValue => newValue)`: Set value at a specific `pathString`. eg: `set("a.b.c", prev => prev + 1)`/`set("" | undefined, {})`. if `pathString` is empty,it will set the entire state object.
 
 ### `useStateCallback(initial, f?)`
 

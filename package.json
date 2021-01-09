@@ -37,7 +37,8 @@
     "@babel/core": "^7.5.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.4",
+    "@babel/core": "^7.12.10",
+    "@babel/node": "^7.12.10",
     "@babel/plugin-proposal-object-rest-spread": "^7.5.4",
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.2.3",

@@ -46,6 +46,49 @@ storiesOf(section('useMergeState'), module)
   return <MergeState />
 `)
 
+storiesOf(section('useNestedState'), module)
+  .addLiveSource('demo', `
+  const Contacts = () => {
+    const { state, get, set } = useNestedState([])
+    return (
+      <div>
+        <div>
+          <ol>
+            {state.map((_, index) => (
+            // eslint-disable-next-line react/no-array-index-key
+              <li key={index} style={{ margin: 10, padding: 10, border: '1px solid black' }}>
+                <label>
+                  Name:
+                  <input type="text" value={get(\`$\{index}.name\`, '')} onChange={e => set(\`$\{index}.name\`, e.target.value)} />
+                </label>
+                <label>
+                  Age:
+                  <input type="number" value={get(\`$\{index}.age\`, 0)} onChange={e => set(\`$\{index}.age\`, e.target.value)} />
+                </label>
+                <div>
+                  <h4>Extra Info:</h4>
+                  <label>
+                    Email:
+                    <input type="email" value={get(\`$\{index}.extraInfo.email\`, '')} onChange={e => set(\`$\{index}.extraInfo.email\`, e.target.value)} />
+                  </label>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <button onClick={() => set('', prev => ([...prev, {}]))}>Add Contact</button>
+        </div>
+        <div>
+          <h3>
+            State:
+          </h3>
+          <pre>{JSON.stringify(state, null, 2)}</pre>
+        </div>
+      </div>
+    )
+  }
+  return <Contacts />
+`)
+
 storiesOf(section('useStateCallback'), module)
   .addLiveSource('demo', `
  const StateCallback = () => {
@@ -64,26 +107,6 @@ storiesOf(section('useStateCallback'), module)
  }
   return <StateCallback />
 `)
-
-// storiesOf(section('createContextState'), module)
-//   .addLiveSource('demo', `
-//   const { ContextProvider, useContextState } = createContextState({ counter: 1 })
-
-//   const ContextState = () => {
-//     const { state, set } = useContextState()
-//     return (
-//       <div>
-//         counter:
-//         {state.counter}
-//         <button onClick={() => set(
-//           prev => ({ counter: prev.counter + 1 })
-//         )}>+1</button>
-//       </div>
-//     )
-//   }
-
-//   return <ContextState />
-// `)
 
 storiesOf(section('useCounter'), module)
   .addLiveSource('demo', `

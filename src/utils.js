@@ -53,3 +53,63 @@ export const shallowEqual = /* istanbul ignore next */ (objA, objB) => {
 
 
 export const identity = x => x
+
+export const toPath = (x = '') => {
+  if (Array.isArray(x)) {
+    return x
+  }
+  return x.toString().replace(/[[\]]/g, '.').split('.').reduce((acc, item) => {
+    if (item.trim() !== '') {
+      acc.push(item)
+    }
+    return acc
+  }, [])
+}
+
+export const get = (obj, pathString, defaultValue) => {
+  const path = toPath(pathString)
+  const res = path.reduce((acc, key) => {
+    if (isNil(acc)) {
+      return undefined
+    }
+    return acc[key]
+  }, obj)
+  return isNil(res) ? defaultValue : res
+}
+
+export const isPlainObject = value => Object.prototype.toString.call(value) === '[object Object]'
+
+
+const copyCurrentValue = (obj, nextKey) => {
+  if (Array.isArray(obj)) {
+    return [
+      ...obj,
+    ]
+  } if (isPlainObject(obj)) {
+    return { ...obj }
+  }
+  if (/[0-9]+/.test(nextKey) && parseInt(nextKey, 10).toString() === nextKey.toString()) {
+    return []
+  }
+  return {}
+}
+export const set = (obj, pathString, value) => {
+  const path = toPath(pathString)
+  if (path.length === 0) {
+    return value
+  }
+
+  const result = copyCurrentValue(obj, path[0])
+
+  path.reduce((acc, currentKey, index) => {
+    const hasNext = index !== path.length - 1
+    const nextKey = path[index + 1]
+    if (hasNext) {
+      acc[currentKey] = copyCurrentValue(acc[currentKey], nextKey)
+    } else {
+      acc[currentKey] = value
+    }
+    return acc[currentKey]
+  }, result)
+  return result
+}
