@@ -22,7 +22,7 @@ Visit [storybook](https://beizhedenglong.github.io/react-hooks-lib)
 | [`createContextState`](#createContextStateInitial)       | initial                            | { ContextProvider, ContextConsumer,  set, useSelector, useSet }  |
 | [`createGlobalState`](#createGlobalStateInitial)         | initial                            | { GlobalProvider, GlobalConsumer, set, useSelector, useSet }      |
 | [`useMergeState`](#usemergestateinitial)                 | initial                            | { state, set }                                               |
-| [`useNestedState`](#usenestedstateinitial)                 | initial                            | { state, get, set }                                               |
+| [`useNestedState`](#usenestedstate)                 | initial                            | { state, get, set }                                               |
 | [`useStateCallback`](#useStateCallbackInitial-f)         | initial, f                         | { state, set }                                               |
 | [`useUndo`](#useUndoInitial)                             | initial                            | { past, present, future, set, undo, redo }                   |
 | [`useCounter`](#useCounterInitial)                       | initial                            | { count, set, reset, inc, dec }                              |
