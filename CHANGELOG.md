@@ -1,3 +1,10 @@
+# [0.4.0](https://github.com/beizhedenglong/react-hooks-lib/compare/v0.3.0...v0.4.0) (2021-01-09)
+
+
+### Features
+
+* add useNestedState hook ([1b2c097](https://github.com/beizhedenglong/react-hooks-lib/commit/1b2c097a2964e2bcc59d5df810a77f93bae7360d))
+
 # [0.3.0](https://github.com/beizhedenglong/react-hooks-lib/compare/v0.2.0...v0.3.0) (2020-09-13)
 
 
