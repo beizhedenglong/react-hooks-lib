@@ -16,6 +16,8 @@ export { default as useMap } from './hooks/useMap'
 
 export { default as useField } from './hooks/useField'
 
+export { default as useCheckbox } from './hooks/useCheckbox'
+
 export { default as useFetch } from './hooks/useFetch'
 
 export { default as useMergeState } from './hooks/useMergeState'
