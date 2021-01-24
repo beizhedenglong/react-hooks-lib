@@ -1,3 +1,10 @@
+# [0.5.0](https://github.com/beizhedenglong/react-hooks-lib/compare/v0.4.0...v0.5.0) (2021-01-24)
+
+
+### Features
+
+* add useCheckbox ([0da0bb6](https://github.com/beizhedenglong/react-hooks-lib/commit/0da0bb67874acefb6370e57b4be0301318d59c3b))
+
 # [0.4.0](https://github.com/beizhedenglong/react-hooks-lib/compare/v0.3.0...v0.4.0) (2021-01-09)
 
 
