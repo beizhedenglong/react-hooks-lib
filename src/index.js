@@ -39,3 +39,7 @@ export { useShallowEqualEffect, useDeepEqualEffect } from './hooks/useEqualEffec
 export { default as useAsync } from './hooks/useAsync'
 
 export { default as useNestedState } from './hooks/useNestedState'
+
+export { default as useBind } from './hooks/useBind'
+
+export { default as useNestedBind } from './hooks/useNestedBind'
