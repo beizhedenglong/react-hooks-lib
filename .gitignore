@@ -8,3 +8,10 @@ yarn-error.log
 coverage
 .DS_store
 example
+
+.yarn/*
+!.yarn/cache
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
