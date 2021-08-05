@@ -1,0 +1,20 @@
+{
+  "name": "docs",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@mdx-js/react": "^1.6.22",
+    "@storybook/addon-actions": "^6.1.15",
+    "@storybook/addon-docs": "^6.1.15",
+    "@storybook/addon-essentials": "^6.1.15",
+    "@storybook/addon-links": "^6.1.15",
+    "@storybook/react": "^6.1.15",
+    "babel-loader": "^8.2.2"
+  },
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "dependencies": {
+    "react-hooks-lib": "workspace:packages/react-hooks-lib"
+  }
+}
