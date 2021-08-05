@@ -68,7 +68,7 @@
     "jest": "^23.6.0",
     "jest-dom": "^3.0.0",
     "microbundle": "^0.11.0",
-    "parcel-bundler": "^1.12.4",
+    "parcel-bundler": "^1.12.5",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-test-renderer": "^16.8.6",
