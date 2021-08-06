@@ -15,7 +15,12 @@ const defaultMap = (e) => {
   if (tagName === 'SELECT') {
     const { target } = e
     if (target.multiple) {
-      const value = Array.from(e.target.selectedOptions, option => option.value)
+      const value = Array.from(target.options).reduce((acc, node) => {
+        if (node.selected) {
+          acc.push(node.value)
+        }
+        return acc
+      }, [])
       return value
     }
     return e.target.value
