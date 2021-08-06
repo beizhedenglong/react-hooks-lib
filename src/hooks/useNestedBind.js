@@ -1,4 +1,5 @@
 import useNestedState from './useNestedState'
+import { defaultMap } from './useBind'
 
 const useNestedBind = (initial) => {
   const { state, set, get } = useNestedState(initial)
@@ -8,25 +9,21 @@ const useNestedBind = (initial) => {
     set,
     get,
     reset: () => set(initial),
-    bind: {
-      value: state,
-      onChange: newState => set('', newState),
-    },
-    createBind: (pathString, options = {
+    bindPath: (path, options = {
       propName: 'value',
       handlerName: 'onChange',
       defaultValue: undefined,
-      map: x => x,
+      map: defaultMap,
     }) => {
       const {
         propName = 'value',
         handlerName = 'onChange',
         defaultValue,
-        map = x => x,
+        map = defaultMap,
       } = options
       return ({
-        [propName]: get(pathString, defaultValue),
-        [handlerName]: newValue => set(pathString, map(newValue)),
+        [propName]: get(path, defaultValue),
+        [handlerName]: newValue => set(path, map(newValue)),
       })
     },
   }

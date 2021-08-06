@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { isNil, get } from '../utils'
 
-const defaultMap = (e) => {
+export const defaultMap = (e) => {
   const tagName = get(e, ['target', 'tagName'])
   if (tagName !== undefined) {
     e.persist()
