@@ -36,3 +36,21 @@ storiesOf(section('useField'), module)
   )
   
 `)
+
+storiesOf(section('useCheckbox'), module)
+  .addLiveSource('demo', `
+ const Checkbox = () => {
+   const { checked, bind } = useCheckbox(false)
+
+   return (
+     <div>
+       is checked:
+       {String(checked)}
+       <input type="checkbox" {...bind} />
+     </div>
+   )
+ }
+ return (
+   <Checkbox />
+ )
+`)
