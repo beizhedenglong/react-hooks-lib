@@ -12,38 +12,40 @@ Visit [storybook](https://beizhedenglong.github.io/react-hooks-lib)
 
 ## Hooks
 
-| Name                                                     | Arguments                          | Returns                                                      |
-| -------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------ |
-| <h6>Lifecycles</h6>                                      |                                    |                                                              |
-| [`useDidMount`](#usedidmountf)                           | f                                  | -                                                            |
-| [`useWillUnmount`](#usewillunmountf)                     | f                                  | -                                                            |
-| [`useDidUpdate`](#usedidupdatef-options)                 | f, conditions                      | -                                                            |
-| <h6>State</h6>                                           |                                    |                                                              |
-| [`createContextState`](#createContextStateInitial)       | initial                            | { ContextProvider, ContextConsumer,  set, useSelector, useSet }  |
-| [`createGlobalState`](#createGlobalStateInitial)         | initial                            | { GlobalProvider, GlobalConsumer, set, useSelector, useSet }      |
-| [`useMergeState`](#usemergestateinitial)                 | initial                            | { state, set }                                               |
-| [`useNestedState`](#usenestedstate)                 | initial                            | { state, get, set }                                               |
-| [`useStateCallback`](#useStateCallbackInitial-f)         | initial, f                         | { state, set }                                               |
-| [`useUndo`](#useUndoInitial)                             | initial                            | { past, present, future, set, undo, redo }                   |
-| [`useCounter`](#useCounterInitial)                       | initial                            | { count, set, reset, inc, dec }                              |
-| [`useToggle`](#useToggleInitial)                         | initial                            | { on, set, reset, toggle }                                   |
-| [`useList`](#useListInitial)                             | initial                            | { list, set, reset, push, sort, filter }                     |
-| [`useMap`](#useMapInitial)                               | initial                            | { values, set, reset, clear, get, has, del }                 |
-| <h6>Effect</h6>                                      |                                    |                                                              |
-| `useShallowEqualEffect`                                  | f, deps                            | -                                                            |
-| `useDeepEqualEffect`                                     | f, deps                            | -                                                            |
-| <h6>Network</h6>                                         |                                    |                                                              |
-| [`useFetch`](#useFetchInitialUrl-initialOptions-onMount) | initialUrl, initialOptions, config | { loading, data, error, fetch, setUrl, setOptions, setData } |
-| [`useOnlineStatus`](#useonlinestatus)                    |                                    |                                                              |
-| <h6>Feedback</h6>                                        |                                    |                                                              |
-| [`useHover`](#useHover)                                  | -                                  | { hovered, bind }                                            |
-| [`useActive`](#useActive)                                | -                                  | { active, bind }                                             |
-| [`useFocus`](#useFocus)                                  | -                                  | { focused, bind }                                            |
-| [`useTouch`](#useTouch)                                  | -                                  | { touched, bind }                                            |
-| <h6>Data Entry</h6>                                      |                                    |                                                              |
-| [`useField`](#useFieldInitial)                           | initial                            | { value, set, reset, bind }                                  |
-| <h6>Async</h6>                                         |                                    |                                                              |
-| `useAsync`                                  | f                                 | { f, loading }                                            |
+| Name                                                     | Arguments                          | Returns                                                         |
+| -------------------------------------------------------- | ---------------------------------- | --------------------------------------------------------------- |
+| <h6>Lifecycles</h6>                                      |                                    |                                                                 |
+| [`useDidMount`](#usedidmountf)                           | f                                  | -                                                               |
+| [`useWillUnmount`](#usewillunmountf)                     | f                                  | -                                                               |
+| [`useDidUpdate`](#usedidupdatef-options)                 | f, conditions                      | -                                                               |
+| <h6>State</h6>                                           |                                    |                                                                 |
+| [`createContextState`](#createContextStateInitial)       | initial                            | { ContextProvider, ContextConsumer,  set, useSelector, useSet } |
+| [`createGlobalState`](#createGlobalStateInitial)         | initial                            | { GlobalProvider, GlobalConsumer, set, useSelector, useSet }    |
+| [`useMergeState`](#usemergestateinitial)                 | initial                            | { state, set }                                                  |
+| [`useNestedState`](#usenestedstate)                      | initial                            | { state, get, set }                                             |
+| `useBind`                                                | Please visit storybook             | Please visit storybook                                          |
+| `useNestedBind`                                          | Please visit storybook             | Please visit storybook                                          |
+| [`useStateCallback`](#useStateCallbackInitial-f)         | initial, f                         | { state, set }                                                  |
+| [`useUndo`](#useUndoInitial)                             | initial                            | { past, present, future, set, undo, redo }                      |
+| [`useCounter`](#useCounterInitial)                       | initial                            | { count, set, reset, inc, dec }                                 |
+| [`useToggle`](#useToggleInitial)                         | initial                            | { on, set, reset, toggle }                                      |
+| [`useList`](#useListInitial)                             | initial                            | { list, set, reset, push, sort, filter }                        |
+| [`useMap`](#useMapInitial)                               | initial                            | { values, set, reset, clear, get, has, del }                    |
+| <h6>Effect</h6>                                          |                                    |                                                                 |
+| `useShallowEqualEffect`                                  | f, deps                            | -                                                               |
+| `useDeepEqualEffect`                                     | f, deps                            | -                                                               |
+| <h6>Network</h6>                                         |                                    |                                                                 |
+| [`useFetch`](#useFetchInitialUrl-initialOptions-onMount) | initialUrl, initialOptions, config | { loading, data, error, fetch, setUrl, setOptions, setData }    |
+| [`useOnlineStatus`](#useonlinestatus)                    |                                    |                                                                 |
+| <h6>Feedback</h6>                                        |                                    |                                                                 |
+| [`useHover`](#useHover)                                  | -                                  | { hovered, bind }                                               |
+| [`useActive`](#useActive)                                | -                                  | { active, bind }                                                |
+| [`useFocus`](#useFocus)                                  | -                                  | { focused, bind }                                               |
+| [`useTouch`](#useTouch)                                  | -                                  | { touched, bind }                                               |
+| <h6>Data Entry</h6>                                      |                                    |                                                                 |
+| [`useField`](#useFieldInitial)                           | initial                            | { value, set, reset, bind }                                     |
+| <h6>Async</h6>                                           |                                    |                                                                 |
+| `useAsync`                                               | f                                  | { f, loading }                                                  |
 
 
 ## API

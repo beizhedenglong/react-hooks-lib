@@ -53,3 +53,19 @@ storiesOf(section('useBind'), module)
 
   return <Basic />
  `)
+  .addLiveSource('with custom component', `
+    const NameInput = ({ name, onInput }) => (
+      <label>
+        Name:
+        {' '}
+        <input type="text" value={name} onChange={onInput} />
+      </label>
+    )
+
+    const WithCustomComponent = () => {
+      const name = useBind('Victor', { propName: 'name', handlerName: 'onInput' })
+      return <NameInput {...name.bind} />
+    }
+
+    return <WithCustomComponent />
+  `)
