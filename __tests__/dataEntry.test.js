@@ -3,7 +3,9 @@ import React from 'react'
 import {
   render, fireEvent,
 } from 'react-testing-library'
-import { useField } from '../src/index'
+import {
+  useField, useCheckbox,
+} from '../src/index'
 
 test('useField', () => {
   const Input = () => {
@@ -23,4 +25,24 @@ test('useField', () => {
   expect(container.firstChild.firstChild.textContent).toBe('a')
   fireEvent.click(getByText('reset'))
   expect(container.firstChild.firstChild.textContent).toBe('Type Here...')
+})
+
+test('useCheckbox', () => {
+  const Input = () => {
+    const { checked, bind, reset } = useCheckbox(false)
+
+    return (
+      <div>
+        <span>{String(checked)}</span>
+        <button onClick={reset}>reset</button>
+        <input type="checkbox" {...bind} />
+      </div>
+    )
+  }
+  const { container, getByText } = render(<Input />)
+  expect(container.firstChild.firstChild.textContent).toBe('false')
+  fireEvent.click(container.firstChild.lastChild)
+  expect(container.firstChild.firstChild.textContent).toBe('true')
+  fireEvent.click(getByText('reset'))
+  expect(container.firstChild.firstChild.textContent).toBe('false')
 })
